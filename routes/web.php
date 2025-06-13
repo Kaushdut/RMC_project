@@ -33,10 +33,10 @@ require __DIR__.'/auth.php'; // Required for Breeze authentication (login, regis
 
 Route::middleware(['auth'])->group(function () {
 
-    // Common dashboard after login (you can redirect based on role from controller)
-   // Route::get('/dashboard', function () {
-     //   return view('dashboard');
-    //})->name('dashboard');
+     //Common dashboard after login (you can redirect based on role from controller)
+   Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
 
     // User profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

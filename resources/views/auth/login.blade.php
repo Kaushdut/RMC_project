@@ -73,8 +73,7 @@
 
             <!-- Buttons -->
             <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
-              
-
+             
                 <button type="submit" class="btn btn-custom-blue px-4 w-100 w-md-auto">
                     {{ __('Login') }}
                 </button>

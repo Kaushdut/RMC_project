@@ -12,13 +12,19 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-       
-        $middleware->alias([
-            'role' => RoleMiddleware::class,
-            'auth' => \App\Http\Middleware\Authenticate::class,
-            // Add other aliases if needed
-        ]);
-    })
+    // Add it to global middleware stack
+    $middleware->append([
+        \App\Http\Middleware\NoCacheHeaders::class,
+    ]);
+
+    // Define middleware aliases
+    $middleware->alias([
+        'role' => \App\Http\Middleware\RoleMiddleware::class,
+        'auth' => \App\Http\Middleware\Authenticate::class,
+        // other aliases if needed
+    ]);
+})
+
     ->withExceptions(function (Exceptions $exceptions) {
         //
     })

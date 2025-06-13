@@ -68,7 +68,7 @@
         @if (Route::has('login'))
             <nav class="flex items-center justify-end gap-3">
                 @auth
-         <!--      <a href="{{ url('/dashboard') }}" class="btn-style">Dashboard</a> -->
+              <a href="{{ url('/dashboard') }}" class="btn-style">Dashboard</a> 
                 @else
                     <a href="{{ route('login') }}" class="btn-style">Log in</a>
                     @if (Route::has('register'))
