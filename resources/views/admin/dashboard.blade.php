@@ -45,7 +45,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Manage User Records</h5>
                             <p class="card-text">View, add, delete and modify User records.</p>
-                            <a href="#" class="btn btn-primary">View Records</a>
+                            <a href="users" class="btn btn-primary">View Records</a>
                         </div>
                     </div>
                 </div>
