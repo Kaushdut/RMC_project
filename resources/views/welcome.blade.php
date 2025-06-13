@@ -95,7 +95,7 @@
         </form>
     </main>
   <footer class="bg-secondary text-white text-center py-3">
-      Regional Meteorological Center India
+      Regional Meteorological Center Kolkata
     </footer>
 </body>
 </html>
