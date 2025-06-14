@@ -35,10 +35,11 @@ class ObserverController extends Controller
         $weather_record->rainfall=$request->rainfall;
         $weather_record->save();
         if($weather_record){
-            return view('');
+            return view('observer/success');
         }
         else{
             return "Failed";
         }
     }
+   
 }

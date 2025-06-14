@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id(); // Primary key
-            $table->string('username')->unique(); // Your custom username
+            $table->string('username')->unique()->default('abc'); // Your custom username
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('role')->default('observer'); // admin, meteorologist, observer
             $table->string('phone')->nullable();
           //  $table->unsignedBigInteger('station_id')->nullable();
-            $table->unsignedBigInteger('observer_id')->nullable();
+            $table->unsignedBigInteger('observer_id')->unique()->nullable();
             $table->rememberToken();
             $table->timestamps();
             

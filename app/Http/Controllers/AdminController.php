@@ -27,7 +27,8 @@ class AdminController extends Controller
         $employee->password=$request->password;
         $employee->role=$request->role;
         $employee->phone=$request->phone;
-        //$employee->station_id=$request->station_id;
+        $employee->observer_id=$request->observer_id;
+        $employee->station_id=$request->station_id;
         $employee->save();
         if($employee){
             return "Successfully Added";

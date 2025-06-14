@@ -20,16 +20,24 @@
                 <input type="date" class="form-control" name="observation_date" id="observation_date" value="{{ date('Y-m-d') }}"><br>    
             </div>
             <div class="mb-3">
+                <label for="observer_id" class="form-label fw-semibold">Observer Id:</label><br> 
+                <input type="number" class="form-control" name="observer_id" id="observer_id" value="{{Auth::user()->observer_id }}" readonly><br>    
+            </div>
+            <div class="mb-3">
+                <label for="station_id" class="form-label fw-semibold">Station Id:</label><br> 
+                <input type="number" class="form-control" name="station_id" id="station_id" value="{{ Auth::user()->station_id }}" readonly><br>    
+            </div>
+            <div class="mb-3">
                 <label for="max_temperature" class="form-label fw-semibold">Maximum Temperature (°C):</label><br>
-                <input type="decimal" class="form-control" name="max_temperature" id="max_temperature" placeholder="Maximum Temperature" min=0 max=80><br>
+                <input type="number" step="any" class="form-control" name="max_temperature" id="max_temperature" placeholder="Maximum Temperature" min=0 max=80><br>
             </div>
             <div class="mb-3">
                 <label for="min_temperature" class="form-label fw-semibold">Minimum Temperature (°C):</label><br>
-                <input type="decimal" class="form-control" name="min_temperature" id="min_temperature" placeholder="Minimum Temperature" min=-50 max=80><br>
+                <input type="number" step="any" class="form-control" name="min_temperature" id="min_temperature" placeholder="Minimum Temperature" min=-50 max=80><br>
             </div>
             <div class="mb-3">
                 <label for="rainfall" class="form-label fw-semibold">Rainfall (mm):</label><br>
-                <input type="text" class="form-control" name="rainfall" id="rainfall" placeholder="Rainfall"><br>
+                <input type="number" step="any" class="form-control" name="rainfall" id="rainfall" placeholder="Rainfall"><br>
             </div>
 
             <div class="d-grid mb-3">
