@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Observation;
+use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class ObserverController extends Controller
 {
@@ -24,7 +26,9 @@ class ObserverController extends Controller
 
     function addObserver(Request $request){
         $weather_record=new Observation();
-        $weather_record->station_id="101";
+        $weather_record->observer_id=Auth::user()->observer_id;
+        $weather_record->date=Carbon::now();
+        $weather_record->station_id=Auth::user()->station_id;
         $weather_record->observation_date=$request->observation_date;
         $weather_record->max_temperature=$request->max_temperature;
         $weather_record->min_temperature=$request->min_temperature;
