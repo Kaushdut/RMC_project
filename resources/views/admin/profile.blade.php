@@ -7,7 +7,7 @@
     <p class="mb-0">Designation: {{ Auth::user()->role }}</p>
     <p class="mb-0">Designation: {{ Auth::user()->email }}</p>
     <p class="mb-0">Designation: {{ Auth::user()->username }}</p>
-    <p class="mb-0">Designation: {{ Auth::user()->phone }}</p>
+    <p class="mb-0">Phone: {{ Auth::user()->phone }}</p>
     @if(Auth::user()->last_login_at)
         <p>Last login: {{ Carbon::parse(Auth::user()->last_login_at)->format('d M Y, h:i A') }}</p>
     @endif
