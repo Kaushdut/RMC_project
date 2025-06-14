@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Observation;
 
 class ObserverController extends Controller
 {
@@ -19,5 +20,21 @@ class ObserverController extends Controller
     }
      function observerprofile(){
         return view('observer/profile');
+    }
+
+    function addObserver(Request $request){
+        $weather_record=new Observation();
+        $weather_record->station_id="101";
+        $weather_record->observation_date=$request->observation_date;
+        $weather_record->max_temperature=$request->max_temperature;
+        $weather_record->min_temperature=$request->min_temperature;
+        $weather_record->rainfall=$request->rainfall;
+        $weather_record->save();
+        if($weather_record){
+            return view('');
+        }
+        else{
+            return "Failed";
+        }
     }
 }

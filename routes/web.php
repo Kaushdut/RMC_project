@@ -72,7 +72,7 @@ Route::middleware(['auth','role:observer'])->group(function () {
     // 🔹 Observer
     Route::get('/observer', [ObserverController::class, 'observerdashboard'])->name('observer.dashboard');
     Route::get('/observerpro', [ObserverController::class, 'observerprofile'])->name('observer.profile');
-    Route::post('/observersubmit', [ObserverController::class, 'addobserve'])->name('observer.submit');
+    Route::post('/observersubmit', [ObserverController::class, 'addObserver'])->name('observer.submit');
 
 });
 

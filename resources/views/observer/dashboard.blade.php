@@ -16,20 +16,20 @@
         <form action="observersubmit" method="post">
             @csrf
             <div class="mb-3">
-                <label for="date" class="form-label fw-semibold">Date:</label><br> 
-                <input type="date" class="form-control" name="date" id="date" value="{{ date('Y-m-d') }}"><br>    
+                <label for="observation_date" class="form-label fw-semibold">Date of Observation:</label><br> 
+                <input type="date" class="form-control" name="observation_date" id="observation_date" value="{{ date('Y-m-d') }}"><br>    
             </div>
             <div class="mb-3">
-                <label for="maxtemp" class="form-label fw-semibold">Maximum Temperature (°C):</label><br>
-                <input type="number" class="form-control" name="maxtemp" id="maxtemp" placeholder="Maximum Temperature" min=0 max=80 required><br>
+                <label for="max_temperature" class="form-label fw-semibold">Maximum Temperature (°C):</label><br>
+                <input type="decimal" class="form-control" name="max_temperature" id="max_temperature" placeholder="Maximum Temperature" min=0 max=80><br>
             </div>
             <div class="mb-3">
-                <label for="mintemp" class="form-label fw-semibold">Minimum Temperature (°C):</label><br>
-                <input type="number" class="form-control" name="mintemp" id="mintemp" placeholder="Minimum Temperature" min=-50 max=80 required><br>
+                <label for="min_temperature" class="form-label fw-semibold">Minimum Temperature (°C):</label><br>
+                <input type="decimal" class="form-control" name="min_temperature" id="min_temperature" placeholder="Minimum Temperature" min=-50 max=80><br>
             </div>
             <div class="mb-3">
-                <label for="rain" class="form-label fw-semibold">Rainfall (mm):</label><br>
-                <input type="text" class="form-control" name="rain" id="rain" placeholder="Rainfall" required><br>
+                <label for="rainfall" class="form-label fw-semibold">Rainfall (mm):</label><br>
+                <input type="text" class="form-control" name="rainfall" id="rainfall" placeholder="Rainfall"><br>
             </div>
 
             <div class="d-grid mb-3">
