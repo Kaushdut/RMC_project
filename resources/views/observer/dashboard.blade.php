@@ -1,17 +1,15 @@
-
-   @extends('layouts.app')
+@extends('layouts.app')
 @section('title','Observer')
 @section('content')
-  <nav class="navbar bg-light shadow">
-            <div class="container-fluid">
-            <span class="navbar-brand mb-0 h1">Dashboard</span>
-           <div>
-    <div>
-        @include('observer.button')
-    </div>
-
+    <nav class="navbar bg-light shadow">
+        <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">Dashboard</span>
+        <div>
+            <div>
+                @include('observer.button')
             </div>
-        </nav>
+        </div>
+    </nav>
     
     <div class="container p-4">
         <h3 class="mb-4 text-center">Enter Weather Records</h3>
@@ -40,4 +38,4 @@
         </form>
     </div>
 
-   @endsection
+@endsection

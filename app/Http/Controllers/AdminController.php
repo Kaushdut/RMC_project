@@ -18,4 +18,21 @@ class AdminController extends Controller
         $user=User::get();
         return view('admin.users',['user'=>$user]);
     }
+
+    function addUsers(Request $request){
+        $employee=new User();
+        $employee->name=$request->name;
+        $employee->username=$request->username;
+        $employee->email=$request->email;
+        $employee->password=$request->password;
+        $employee->role=$request->role;
+        $employee->phone=$request->phone;
+        //$employee->station_id=$request->station_id;
+        $employee->save();
+        if($employee){
+            return "Successfully Added";
+        }
+        else
+            return "Error";
+    }
 }

@@ -60,6 +60,8 @@ Route::middleware(['auth','role:admin'])->group(function () {
     Route::get('/adminpro', [AdminController::class, 'adminprofile'])->name('admin.profile');
     //User Table
     Route::get('/users',[AdminController::class,'getUsers']);
+    Route::view('/adminInput','admin.adminInput');
+    Route::post('/adminInput',[AdminController::class,'addUsers']);
 });
 Route::middleware(['auth','role:meteorologist'])->group(function () {
     // 🔹 Meteorologist

@@ -57,7 +57,7 @@
         <div class="card-body">
             <h5 class="card-title">Add Users</h5>
             <p class="card-text">Add New Users to the Database</p>
-            <a href="#" class="btn btn-primary">Add Records</a>
+            <a href="adminInput" class="btn btn-primary">Add Records</a>
         </div>
     </div>
     </div>

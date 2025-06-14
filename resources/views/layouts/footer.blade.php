@@ -23,17 +23,17 @@
 </head>
 <body>
 
-  <!-- Sticky Footer -->
-  <div class="container">
-    <footer class="py-3  border-top border-dark text-center mt-auto">
+  <!-- Sticky Footer --->
+  <div class="container border-top border-dark text-center mt-4">
+    <footer class="footer py-3 mt-auto">
         <span class="text-center text-body-secondary">
           <span>© Copyright<span>
           <a href="https://mausam.imd.gov.in/kolkata/" class="text-decoration-none link-secondary" target="_blank">
             Regional Meteorological Centre Kolkata
           </a>
-        </span>
+        </span>  
     </footer>
-  </div>  
+  </div>
 
   <!-- Bootstrap JS (optional) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
