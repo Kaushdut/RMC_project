@@ -70,9 +70,9 @@
                 @auth
               <a href="{{ url('/dashboard') }}" class="btn-style">Dashboard</a> 
                 @else
-                    <a href="{{ route('login') }}" class="btn-style">Log in</a>
+           <!--         <a href="{{ route('login') }}" class="btn-style">Log in</a> -->
                     @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="btn-style">Register</a>
+                <!--        <a href="{{ route('register') }}" class="btn-style">Register</a> -->
                     @endif
                 @endauth
             </nav>
@@ -80,20 +80,30 @@
     </header>
 
     <!-- Centered Content -->
-    <main>
-        <img src="{{ asset('images/logo.png') }}" alt="App logo" class="logo" />
+     
+    <main class="text-center">
+    <img src="{{ asset('images/logo.png') }}" alt="App logo" class="logo mb-4" />
 
-        @if(Auth::check())
-            <p class="mb-3">Logged in as: {{ Auth::user()->name }} </p>
+    @if(Auth::check())
+        <p class="mb-3">Logged in as: {{ Auth::user()->name }}</p>
+    @endif
+
+    <div class="d-flex justify-content-center gap-3">
+        @auth
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button type="submit" class="btn-style">
+                    {{ __('Log Out') }}
+                </button>
+            </form>
         @else
-            <p class="mb-3">You are not logged in.</p>
-        @endif
+            <a href="{{ route('login') }}" class="btn-style">
+                {{ __('Log in') }}
+            </a>
+        @endauth
+    </div>
+</main>
 
-        <form method="POST" action="{{ route('logout') }}">
-            @csrf
-            <button type="submit" class="btn-style">Logout</button>
-        </form>
-    </main>
   <footer class="bg-secondary text-white text-center py-3">
       Regional Meteorological Center Kolkata
     </footer>

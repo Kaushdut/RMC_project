@@ -29,7 +29,9 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerate();
 
         $user = auth()->user();
-
+               Auth::user()->update([
+        'last_login_at' => now(),
+          ]);
         // Redirect based on role
         if ($user->role === 'admin') {
             return redirect()->route('admin.dashboard');
@@ -38,6 +40,7 @@ class AuthenticatedSessionController extends Controller
         } else {
             return redirect()->route('observer.dashboard');
         }
+    
     }
 
     /**

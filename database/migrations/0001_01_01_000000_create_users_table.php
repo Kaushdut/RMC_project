@@ -20,10 +20,12 @@ return new class extends Migration
             $table->string('password');
             $table->string('role')->default('observer'); // admin, meteorologist, observer
             $table->string('phone')->nullable();
-            $table->unsignedBigInteger('station_id')->nullable();
+          //  $table->unsignedBigInteger('station_id')->nullable();
             $table->unsignedBigInteger('observer_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
+            
+        
 
             // Foreign Key Constraint (optional, if stations table exists)
           //  $table->foreign('station_id')->references('station_id')->on('stations')->onDelete('set null');
