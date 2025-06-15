@@ -21,15 +21,25 @@
         <tr>
             <td style="background-color:#00538C;color:white;">ID</td>
             <td style="background-color:#00538C;color:white;">NAME</td>
+            <td style="background-color:#00538C;color:white;">ROLE</td>
+            <td style="background-color:#00538C;color:white;">MOBILE</td>
             <td style="background-color:#00538C;color:white;">EMAIL</td>
+            <td style="background-color:#00538C;color:white;">STATION ID</td>
+            <td style="background-color:#00538C;color:white;">UPDATE</td>
+            <td style="background-color:#00538C;color:white;">DELETE</td>
         </tr>
     </thead>
     <tbody class="table-group-divider">
     @foreach($user as $users)
         <tr>
-            <td>{{$users->id}}</td>
+            <td>{{$users->observer_id}}</td>
             <td>{{$users->name}}</td>
+            <td>{{$users->role}}</td>
+            <td>{{$users->phone}}</td>
             <td>{{$users->email}}</td>
+            <td>{{$users->station_id}}</td>
+            <td><a href="#" class="btn btn-outline-primary">UPDATE</a></td>
+            <td><a href="#" class="btn btn-outline-danger">DELETE</a></td>
         </tr>
     @endforeach
     </tbody>
