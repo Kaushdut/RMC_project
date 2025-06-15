@@ -6,8 +6,6 @@
     <a href="admin" class="btn btn-outline-primary">Admin Dashboard</a>
   </div>
 </nav>
-
-
 <div class="container mt-4 p-4">
     <div class="card shadow p-4 w-100 w-sm-75 w-md-50">
     <h3 class="mb-4 text-center">Enter Employee Information</h3>    

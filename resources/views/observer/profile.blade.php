@@ -12,6 +12,7 @@
     <li class="list-group-item"><p class="mb-0"><strong>Phone Number:</strong> {{ Auth::user()->phone }}</p></li>
     <li class="list-group-item"><p class="mb-0"><strong>Observer_id:</strong> {{ Auth::user()->observer_id }}</p></li>
     <li class="list-group-item"><p class="mb-0"><strong>Station_id:</strong> {{ Auth::user()->station_id }}</p></li>
+   
     <li class="list-group-item">
     @if(Auth::user()->last_login_at)
         <p><strong>Last login:</strong> {{ Carbon::parse(Auth::user()->last_login_at)->format('d M Y, h:i A') }}</p>
