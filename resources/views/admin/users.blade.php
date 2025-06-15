@@ -13,6 +13,12 @@
   </div>
 </nav>
 
+@if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
 <!--User Table-->
 <div class="container table-responsive mt-5 mb-5">
     <h3 style="text-align:center;">Employee Information</h3>
@@ -30,17 +36,23 @@
         </tr>
     </thead>
     <tbody class="table-group-divider">
-    @foreach($user as $users)
-        <tr>
-            <td>{{$users->observer_id}}</td>
-            <td>{{$users->name}}</td>
-            <td>{{$users->role}}</td>
-            <td>{{$users->phone}}</td>
-            <td>{{$users->email}}</td>
-            <td>{{$users->station_id}}</td>
+    @foreach($users as $user)
+          <tr>
+            <td>{{$user->observer_id}}</td>
+            <td>{{$user->name}}</td>
+            <td>{{$user->role}}</td>
+            <td>{{$user->phone}}</td>
+            <td>{{$user->email}}</td>
+            <td>{{$user->station_id}}</td>
             <td><a href="#" class="btn btn-outline-primary">UPDATE</a></td>
-            <td><a href="#" class="btn btn-outline-danger">DELETE</a></td>
-        </tr>
+            <td>
+            <form action="{{ route('admin.users.destroy', $user->id) }}" method="post" style="display:inline;" onsubmit="return confirm('Do you want to delete this employee?')">
+              @csrf 
+              @method('DELETE')
+              <button type="submit" class="btn btn-outline-danger">DELETE</button>
+            </form>
+            </td>
+          </tr>
     @endforeach
     </tbody>
     </table>

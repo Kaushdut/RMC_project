@@ -15,8 +15,8 @@ class AdminController extends Controller
     }
     
     function getUsers(){
-        $user=User::get();
-        return view('admin.users',['user'=>$user]);
+        $users=User::get();
+        return view('admin.users',['users'=>$users]);
     }
 
     function addUsers(Request $request){
@@ -25,7 +25,7 @@ class AdminController extends Controller
         $employee->username=$request->username;
         $employee->email=$request->email;
         $employee->password=$request->password;
-        $employee->role=$request->role;
+        $employee->role=strtolower($request->role);
         $employee->phone=$request->phone;
         $employee->observer_id=$request->observer_id;
         $employee->station_id=$request->station_id;
@@ -35,5 +35,19 @@ class AdminController extends Controller
         }
         else
             return "Error";
+    }
+
+    function destroy(Request $request,$id){
+        $emp=User::findOrFail($id)->delete();
+        return redirect()->route('admin.users')->with('success', 'User deleted successfully.');
+    }
+
+    function searchUsers(Request $request){
+        $user=User::when($request->search,function($query)use($request){
+            return $query->whereAny([
+                'name',
+                'email'
+            ],'like','%'.$request->search.'%');
+        })->get();
     }
 }

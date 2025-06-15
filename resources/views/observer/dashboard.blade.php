@@ -51,4 +51,21 @@
         </form>
     </div>
 
+    @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+    @endif
+
+
+@endsection
+
+@section('scripts')
+<script>
+    window.onload = function () {
+        if (performance.navigation.type === 2) {
+            document.querySelector("form").reset();
+        }
+    }
+</script>
 @endsection

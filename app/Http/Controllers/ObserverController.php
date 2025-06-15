@@ -34,12 +34,9 @@ class ObserverController extends Controller
         $weather_record->min_temperature=$request->min_temperature;
         $weather_record->rainfall=$request->rainfall;
         $weather_record->save();
-        if($weather_record){
-            return view('observer/success');
-        }
-        else{
-            return "Failed";
-        }
+        
+        return redirect()->back()->with('success',"Observation Recorded Successfully");
+        
     }
    
 }

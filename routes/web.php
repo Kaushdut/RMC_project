@@ -62,6 +62,7 @@ Route::middleware(['auth','role:admin'])->group(function () {
     Route::get('/users',[AdminController::class,'getUsers']);
     Route::view('/adminInput','admin.adminInput');
     Route::post('/adminInput',[AdminController::class,'addUsers']);
+    Route::delete('/admin/users/{id}',[AdminController::class,'destroy'])->name('admin.users.destroy');
 });
 Route::middleware(['auth','role:meteorologist'])->group(function () {
     // 🔹 Meteorologist
