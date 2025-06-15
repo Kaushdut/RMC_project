@@ -22,7 +22,7 @@ return new class extends Migration
             $table->decimal('rainfall', 5, 2)->nullable();
             $table->timestamps();
 
-            $table->foreign('station_id')->references('station_id')->on('station');
+            $table->foreign('station_id')->references('id')->on('stations');
             $table->foreign('observer_id')->references('observer_id')->on('users');
         });
     }

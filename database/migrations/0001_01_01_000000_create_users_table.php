@@ -6,29 +6,24 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id(); // Primary key
-            $table->string('username')->unique()->default('abc'); // Your custom username
+            $table->string('username')->unique()->default('abc');
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('role')->default('observer'); // admin, meteorologist, observer
+            $table->string('role')->default('observer');
             $table->string('phone')->nullable();
-          //  $table->unsignedBigInteger('station_id')->nullable();
             $table->unsignedBigInteger('observer_id')->unique()->nullable();
+        
             $table->rememberToken();
             $table->timestamps();
-            
-        
 
-            // Foreign Key Constraint (optional, if stations table exists)
-          //  $table->foreign('station_id')->references('station_id')->on('stations')->onDelete('set null');
+            // Foreign Key Constraint
+           $table->foreignId('station_id')->nullable()->constrained('stations')->nullOnDelete();
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
@@ -47,13 +42,16 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('sessions');
         Schema::dropIfExists('password_reset_tokens');
+
+        // Drop foreign key before dropping users table
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropForeign(['station_id']);
+        });
+
         Schema::dropIfExists('users');
     }
 };
