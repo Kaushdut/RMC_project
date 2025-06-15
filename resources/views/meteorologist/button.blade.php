@@ -20,8 +20,8 @@
 
 
 <!-- Offcanvas -->
-<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasProfile" aria-labelledby="offcanvasProfileLabel">
-  <div class="offcanvas-header">
+<div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasProfile" aria-labelledby="offcanvasProfileLabel">
+  <div class="offcanvas-header border-bottom">
     <h5 id="offcanvasProfileLabel">Profile</h5>
     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>

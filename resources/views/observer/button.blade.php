@@ -18,11 +18,10 @@
   </button>
 </div>
 
-
 <!-- Offcanvas -->
-<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasProfile" aria-labelledby="offcanvasProfileLabel">
-  <div class="offcanvas-header">
-    <h5 id="offcanvasProfileLabel">Profile</h5>
+<div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasProfile" aria-labelledby="offcanvasProfileLabel">
+  <div class="offcanvas-header  border-bottom">
+    <h4 id="offcanvasProfileLabel">Profile</h4>
     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body" id="offcanvasProfileBody">
