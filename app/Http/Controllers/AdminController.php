@@ -31,7 +31,7 @@ class AdminController extends Controller
         $employee->station_id=$request->station_id;
         $employee->save();
         if($employee){
-            return "Successfully Added";
+            return view('admin.sucess');
         }
         else
             return "Error";
