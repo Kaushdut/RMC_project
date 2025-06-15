@@ -38,10 +38,6 @@
             <input type="number" class="form-control" id="station_id" name="station_id" placeholder="Enter Station ID">
         </div>
 
- <div class="mb-3">
-            <label for="observer_id" class="form-label fw-semibold">OBSERVER ID</label>
-            <input type="number" class="form-control" id="observer_id" name="observer_id" placeholder="Enter Observer ID">
-        </div>
         <div class="mb-3">
             <label for="email" class="form-label fw-semibold">Email</label>
             <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email">
