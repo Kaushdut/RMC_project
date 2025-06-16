@@ -28,10 +28,10 @@
             <td style="background-color:#00538C;color:white;">ID</td>
             <td style="background-color:#00538C;color:white;">NAME</td>
             <td style="background-color:#00538C;color:white;">ROLE</td>
+            <td style="background-color:#00538C;color:white;">STATION ID</td>
             <td style="background-color:#00538C;color:white;">MOBILE</td>
             <td style="background-color:#00538C;color:white;">EMAIL</td>
-            <td style="background-color:#00538C;color:white;">STATION ID</td>
-            <td style="background-color:#00538C;color:white;">UPDATE</td>
+            <td style="background-color:#00538C;color:white;">EDIT</td>
             <td style="background-color:#00538C;color:white;">DELETE</td>
         </tr>
     </thead>
@@ -41,10 +41,10 @@
             <td>{{$user->observer_id}}</td>
             <td>{{$user->name}}</td>
             <td>{{$user->role}}</td>
+            <td>{{$user->station_id}}</td>
             <td>{{$user->phone}}</td>
             <td>{{$user->email}}</td>
-            <td>{{$user->station_id}}</td>
-            <td><a href="#" class="btn btn-outline-primary">UPDATE</a></td>
+            <td><a href="{{ route('admin.edit.update',$user->id) }}" class="btn btn-outline-primary">EDIT</a></td>
             <td>
             <form action="{{ route('admin.users.destroy', $user->id) }}" method="post" style="display:inline;" onsubmit="return confirm('Do you want to delete this employee?')">
               @csrf 

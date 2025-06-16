@@ -39,8 +39,30 @@ class AdminController extends Controller
 
     function destroy(Request $request,$id){
         $emp=User::findOrFail($id)->delete();
-      
-        return redirect()->route('admin.users')->with('success', 'User deleted successfully.');
+        return redirect()->back()->with('success', 'User deleted successfully.');
+    }
+
+    function update($id){
+        $emp=User::find($id);
+        return view('admin.edit',['users'=>$emp]);
+    }
+
+    function edit(Request $request,$id){
+        $employee=User::find($id);
+        $employee->name=$request->name;
+        $employee->username=$request->username;
+        $employee->email=$request->email;
+        $employee->password=$request->password;
+        $employee->role=strtolower($request->role);
+        $employee->phone=$request->phone;
+        $employee->observer_id=$request->observer_id;
+        $employee->station_id=$request->station_id;
+        if($employee->save()){
+            return redirect('/users');
+        }
+        else{
+            return "Failed to Update";
+        }
     }
 
     function searchUsers(Request $request){

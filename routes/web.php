@@ -63,6 +63,8 @@ Route::middleware(['auth','role:admin'])->group(function () {
     Route::view('/adminInput','admin.adminInput');
     Route::post('/adminInput',[AdminController::class,'addUsers']);
     Route::delete('/admin/users/{id}',[AdminController::class,'destroy'])->name('admin.users.destroy');
+    Route::get('edit/{id}',[AdminController::class,'update'])->name('admin.edit.update');
+    Route::put('editUser/{id}',[AdminController::class,'edit'])->name('admin.editUser.edit');
     
 });
 Route::middleware(['auth','role:meteorologist'])->group(function () {
