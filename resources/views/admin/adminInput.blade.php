@@ -16,34 +16,46 @@
             <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name" required>
         </div>
 
-        <div class="mb-3">
-            <label for="username" class="form-label fw-semibold">UserName</label>
-            <input type="text" class="form-control" id="username" name="username" placeholder="Enter UserName" required>
+        <div class="container">
+            <div class="row">
+                <div class="mb-3 col-6">
+                    <label for="username" class="form-label fw-semibold">UserName</label>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Enter UserName" required>
+                </div>
+                <div class="mb-3 col-6">
+                    <label for="role" class="form-label fw-semibold">Designation</label>
+                    <select class="form-select" aria-label="User Role" id="role" name="role">
+                    <option value="observer" selected>Observer</option>
+                    <option value="meteorologist">Meteorologist</option>
+                    </select>
+                </div>
+            </div>
         </div>
 
-        <div class="mb-3">
-            <label for="role" class="form-label fw-semibold">Designation</label>
-            <input type="text" class="form-control" id="role" name="role" placeholder="Observer or Meteorologist" required>
+        <div class="container">
+            <div class="row">
+                <div class="mb-3 col-6">
+                    <label for="observer_id" class="form-label fw-semibold">Observer ID</label>
+                    <input type="number" class="form-control" id="observer_id" name="observer_id" placeholder="For Observer only">
+                </div>
+                <div class="mb-3 col-6">
+                    <label for="station_id" class="form-label fw-semibold">Station ID</label>
+                    <input type="number" class="form-control" id="station_id" name="station_id" placeholder="Enter Station ID">
+                </div>
+            </div>
         </div>
 
-        <div class="mb-3">
-            <label for="observer_id" class="form-label fw-semibold">Observer ID</label>
-            <input type="number" class="form-control" id="observer_id" name="observer_id" placeholder="For Observer only">
-        </div>
-
-        <div class="mb-3">
-            <label for="station_id" class="form-label fw-semibold">Station ID</label>
-            <input type="number" class="form-control" id="station_id" name="station_id" placeholder="Enter Station ID">
-        </div>
-
-        <div class="mb-3">
-            <label for="email" class="form-label fw-semibold">Email</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email">
-        </div>
-
-        <div class="mb-3">
-            <label for="phone" class="form-label fw-semibold">Mobile Number</label>
-            <input type="phone" class="form-control" id="phone" name="phone" placeholder="Enter Mobile Number">
+        <div class="container">
+            <div class="row">
+                <div class="mb-3 col-6">
+                    <label for="email" class="form-label fw-semibold">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email">
+                </div>
+                <div class="mb-3 col-6">
+                    <label for="phone" class="form-label fw-semibold">Mobile Number</label>
+                    <input type="phone" class="form-control" id="phone" name="phone" placeholder="Enter Mobile Number">
+                </div>
+            </div>
         </div>
 
         <div class="mb-3">
@@ -51,13 +63,10 @@
             <input type="password" class="form-control" id="password" name="password" placeholder="Create Password">
         </div>
 
-        <div>
-            <button type="reset" class="btn btn-secondary mb-3 mt-3" name="reset">Reset</button>
-        </div>
-
-        <div class="d-grid mb-3">
+        <div class="d-grid">
             <button type="submit" class="btn btn-primary mb-3 mt-3" name="submit">Submit</button>
         </div>
+        <button type="reset" class="btn btn-secondary mb-3 mt-3" name="reset">Reset</button>
     </form>
 </div>
 </div>

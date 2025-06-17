@@ -28,10 +28,10 @@
 </div>
 
 <div class="container">
-    <div class="row">
+    <div class="row row-cols-1 row-cols-md-2 g-4 mt-4">
         <!--Card 1-->
-        <div class="col-sm-6 mb-5 mb-sm-3 mt-2">
-            <div class="card">
+        <div class="col-sm-6 mt-2 mb-4">
+            <div class="card shadow text-center">
                 <div class="card-body">
                     <h5 class="card-title">View Weather Records</h5>
                     <p class="card-text">View and download weather records.</p>
@@ -39,27 +39,37 @@
                 </div>
             </div>
         </div>
-
         <!--Card 2-->
-        <div class="col-sm-6 mb-5 mb-sm-3 mt-2">
-            <div class="card">
+        <div class="col-sm-6 mt-2 mb-4">
+            <div class="card shadow text-center">
                 <div class="card-body">
                     <h5 class="card-title">Manage User Records</h5>
-                    <p class="card-text">View, add, delete and modify User records.</p>
+                    <p class="card-text">View, delete and modify User records.</p>
                     <a href="users" class="btn btn-primary">View Records</a>
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="d-flex justify-content-center mt-2">
-    <div class="card w-100 w-md-75 w-lg-50 mb-3">
-        <div class="card-body">
-            <h5 class="card-title">Add Users</h5>
-            <p class="card-text">Add New Users to the Database</p>
-            <a href="adminInput" class="btn btn-primary">Add Records</a>
+        <!--Card 3-->
+        <div class="col-sm-6 mt-2 mb-4">
+            <div class="card shadow text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Add Users</h5>
+                    <p class="card-text">Add New Users to the Database</p>
+                    <a href="adminInput" class="btn btn-primary">Add Records</a>
+                </div>
+            </div>
         </div>
-    </div>
+        <!--Card 4-->
+        <div class="col-sm-6 mt-2 mb-4">
+            <div class="card shadow text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Weather Stations</h5>
+                    <p class="card-text">View rainfall stations.</p>
+                    <a href="#" class="btn btn-primary">View Records</a>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 

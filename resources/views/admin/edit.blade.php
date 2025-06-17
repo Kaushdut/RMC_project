@@ -19,44 +19,56 @@
             <input type="text" class="form-control" value="{{$users->name}}" id="name" name="name" placeholder="Enter Name" required>
         </div>
 
-        <div class="mb-3">
-            <label for="username" class="form-label fw-semibold">UserName</label>
-            <input type="text" class="form-control" value="{{$users->username}}" id="username" name="username" placeholder="Enter UserName" required>
+        <div class="container">
+            <div class="row">
+                <div class="mb-3 col-6">
+                    <label for="username" class="form-label fw-semibold">UserName</label>
+                    <input type="text" class="form-control" value="{{$users->username}}" id="username" name="username" placeholder="Enter UserName" required>
+                </div>
+
+                <div class="mb-3 col-6">
+                    <label for="role" class="form-label fw-semibold">Designation</label>
+                    <input type="text" class="form-control" value="{{$users->role}}" id="role" name="role" placeholder="Observer or Meteorologist" required>
+                </div>
+            </div>
         </div>
 
-        <div class="mb-3">
-            <label for="role" class="form-label fw-semibold">Designation</label>
-            <input type="text" class="form-control" value="{{$users->role}}" id="role" name="role" placeholder="Observer or Meteorologist" required>
+        <div class="container">
+            <div class="row">
+                <div class="mb-3 col-6">
+                    <label for="observer_id" class="form-label fw-semibold">Observer ID</label>
+                    <input type="number" class="form-control" value="{{$users->observer_id}}" id="observer_id" name="observer_id" placeholder="For Observer only">
+                </div>
+                <div class="mb-3 col-6">
+                    <label for="station_id" class="form-label fw-semibold">Station ID</label>
+                    <input type="number" class="form-control" value="{{$users->station_id}}" id="station_id" name="station_id" placeholder="Enter Station ID">
+                </div>
+            </div>
         </div>
 
-        <div class="mb-3">
-            <label for="observer_id" class="form-label fw-semibold">Observer ID</label>
-            <input type="number" class="form-control" value="{{$users->observer_id}}" id="observer_id" name="observer_id" placeholder="For Observer only">
-        </div>
+        <div class="container">
+            <div class="row">
+                <div class="mb-3 col-6">
+                    <label for="email" class="form-label fw-semibold">Email</label>
+                    <input type="email" class="form-control" value="{{$users->email}}" id="email" name="email" placeholder="Enter Email">
+                </div>
 
-        <div class="mb-3">
-            <label for="station_id" class="form-label fw-semibold">Station ID</label>
-            <input type="number" class="form-control" value="{{$users->station_id}}" id="station_id" name="station_id" placeholder="Enter Station ID">
-        </div>
-
-        <div class="mb-3">
-            <label for="email" class="form-label fw-semibold">Email</label>
-            <input type="email" class="form-control" value="{{$users->email}}" id="email" name="email" placeholder="Enter Email">
-        </div>
-
-        <div class="mb-3">
-            <label for="phone" class="form-label fw-semibold">Mobile Number</label>
-            <input type="phone" class="form-control" value="{{$users->phone}}" id="phone" name="phone" placeholder="Enter Mobile Number">
+                <div class="mb-3 col-6">
+                    <label for="phone" class="form-label fw-semibold">Mobile Number</label>
+                    <input type="phone" class="form-control" value="{{$users->phone}}" id="phone" name="phone" placeholder="Enter Mobile Number">
+                </div>
+            </div>
         </div>
 
         <div class="mb-3">
             <label for="password" class="form-label fw-semibold">Password</label>
             <input type="password" class="form-control" value="{{$users->password}}" id="password" name="password" placeholder="Create Password">
         </div>
-
+<!--
         <div>
             <a href="/users" class="btn btn-danger">Cancel</a>
         </div>
+-->
 
         <div class="d-grid mb-3">
             <button type="submit" class="btn btn-primary mb-3 mt-3" name="submit">Update</button>
