@@ -18,8 +18,7 @@ return new class extends Migration
 
     $table->dateTime('date');
     $table->date('observation_date');
-    $table->decimal('min_temperature', 5, 2)->nullable();
-    $table->decimal('max_temperature', 5, 2)->nullable();
+   
     $table->decimal('rainfall', 5, 2)->nullable();
     $table->timestamps();
 

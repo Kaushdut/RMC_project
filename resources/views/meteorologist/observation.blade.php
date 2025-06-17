@@ -1,0 +1,39 @@
+
+@extends('layouts.app')
+@section('title','observations')
+@section('content')
+
+
+<div class="container table-responsive mt-5 mb-5">
+    <h3 style="text-align:center;">Observation Data</h3>
+    <table class="table table-striped table-hover table-bordered border-black shadow text-center">
+    <thead>
+        <tr>
+            <td style="background-color:#00538C;color:white;">STATION ID</td>
+            <td style="background-color:#00538C;color:white;">DATE</td>
+            <td style="background-color:#00538C;color:white;">DATE OF OBSERVATION</td>
+            <td style="background-color:#00538C;color:white;">STATION NAME</td>
+            <td style="background-color:#00538C;color:white;">LATITUDE</td>
+            <td style="background-color:#00538C;color:white;">LONGITUDE</td>
+            <td style="background-color:#00538C;color:white;">RAINFALL</td>
+            
+        </tr>
+    </thead>
+     <tbody class="table-group-divider">
+    @foreach($datas as $obdata)
+          <tr>
+            <td>{{$obdata->station_id}}</td>
+            <td>{{$obdata->date}}</td>
+            <td>{{$obdata->observation_date}}</td>
+            <td>{{$obdata->station->station_name ?? 'N/A'}}</td>
+            <td>{{$obdata->station->latitude ?? 'N/A'}}</td>
+            <td>{{$obdata->station->longitude ?? 'N/A'}}</td>
+            <td>{{$obdata->rainfall}}</td>
+            
+          </tr>
+    @endforeach
+    </tbody>
+
+    </table>
+    </div>
+    @endsection

@@ -30,8 +30,7 @@ class ObserverController extends Controller
         $weather_record->date=Carbon::now();
         $weather_record->station_id=Auth::user()->station_id;
         $weather_record->observation_date=$request->observation_date;
-        $weather_record->max_temperature=$request->max_temperature;
-        $weather_record->min_temperature=$request->min_temperature;
+       
         $weather_record->rainfall=$request->rainfall;
         $weather_record->save();
         

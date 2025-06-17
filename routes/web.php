@@ -71,6 +71,7 @@ Route::middleware(['auth','role:meteorologist'])->group(function () {
     // 🔹 Meteorologist
     Route::get('/meteorologist', [MeteoController::class, 'meteodashboard'])->name('meteo.dashboard');
     Route::get('/meteorologistpro', [MeteoController::class, 'meteoprofile'])->name('meteo.profile');
+       Route::get('/meteorologistobservation', [MeteoController::class, 'observation'])->name('meteo.observation');
 });
 Route::middleware(['auth','role:observer'])->group(function () {
     // 🔹 Observer

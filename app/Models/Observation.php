@@ -14,9 +14,12 @@ class Observation extends Model
     'station_id',
     'date',
     'observation_date',
-    'min_temperature',
-    'max_temperature',
     'rainfall',
 ];
+public function station()
+{
+    return $this->belongsTo(Station::class,'station_id');
+
+}
 
 }

@@ -16,6 +16,8 @@ return new class extends Migration
            
             $table->string('station_name');
             $table->string('district');
+             $table->string('latitude');
+              $table->string('longitude');
             $table->timestamps();
         });
     }

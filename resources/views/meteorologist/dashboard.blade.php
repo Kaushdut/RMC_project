@@ -34,7 +34,7 @@
                         <div class="card-body">
                             <h5 class="card-title">View Weather Observations</h5>
                             <p class="card-text">View and download weather records.</p>
-                            <a href="#" class="btn btn-primary">View Records</a>
+                            <a href="meteorologistobservation" class="btn btn-primary">View Records</a>
                         </div>
                     </div>
                 </div>

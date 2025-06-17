@@ -32,14 +32,7 @@
                     </div>
                 </div>
             </div>
-            <div class="mb-3">
-                <label for="max_temperature" class="form-label fw-semibold">Maximum Temperature (°C):</label>
-                <input type="number" step="any" class="form-control" name="max_temperature" id="max_temperature" placeholder="Maximum Temperature" min=0 max=80>
-            </div>
-            <div class="mb-3">
-                <label for="min_temperature" class="form-label fw-semibold">Minimum Temperature (°C):</label>
-                <input type="number" step="any" class="form-control" name="min_temperature" id="min_temperature" placeholder="Minimum Temperature" min=-50 max=80>
-            </div>
+          
             <div class="mb-3">
                 <label for="rainfall" class="form-label fw-semibold">Rainfall (mm):</label>
                 <input type="number" step="any" class="form-control" name="rainfall" id="rainfall" placeholder="Rainfall">
