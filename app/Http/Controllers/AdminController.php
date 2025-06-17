@@ -4,22 +4,29 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Station;
 
 class AdminController extends Controller
 {
+    //Dashboard
     function admindashboard(){
         return view('admin/dashboard');
     }
+    //Profile Page
      function adminprofile(){
         return view('admin/profile');
     }
-    
+
+    //User Table
     function getUsers(){
         $users=User::get();
         return view('admin.users',['users'=>$users]);
     }
-
+    //Add User
     function addUsers(Request $request){
+        //validation
+        
+        //Add Employee
         $employee=new User();
         $employee->name=$request->name;
         $employee->username=$request->username;
@@ -36,12 +43,12 @@ class AdminController extends Controller
         else
             return "Error";
     }
-
+    //Delete User
     function destroy(Request $request,$id){
         $emp=User::findOrFail($id)->delete();
         return redirect()->back()->with('success', 'User deleted successfully.');
     }
-
+    //Edit and Update in Database
     function update($id){
         $emp=User::find($id);
         return view('admin.edit',['users'=>$emp]);
@@ -64,7 +71,7 @@ class AdminController extends Controller
             return "Failed to Update";
         }
     }
-
+    //Search Users
     function searchUsers(Request $request){
         $user=User::when($request->search,function($query)use($request){
             return $query->whereAny([
@@ -72,5 +79,35 @@ class AdminController extends Controller
                 'email'
             ],'like','%'.$request->search.'%');
         })->get();
+    }
+
+    //Station Table
+    function getStation(){
+        $station=Station::get();
+        return view('admin.stationView',['stations'=>$station]);
+    }
+    //Add Station
+    function addStations(Request $request){
+        //validation
+        $request->validate([
+            'id'=>'',
+            'station_name'=>'',
+            'district'=>'',
+            'latitude'=>'',
+            'longitude'=>''
+        ],[]);
+        //Add Station
+        $station=new Station;
+        $station->id=$request->id;
+        $station->station_name=$request->station_name;
+        $station->district=$request->district;
+        $station->latitude=$request->latitude;
+        $station->longitude=$request->longitude;
+        if($station->save()){
+            return redirect()->back()->with('success',"Station Inserted Successfully");
+        }
+        else{
+            return "Failed to Insert";
+        }
     }
 }

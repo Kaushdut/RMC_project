@@ -12,7 +12,7 @@
     </nav>
     
     <div class="container p-4">
-        <h3 class="mb-4 text-center">Enter Weather Records</h3>
+        <h3 class="mb-4 text-center">Rainfall Observation</h3>
         <form action="observersubmit" method="post">
             @csrf
             <div class="mb-3">
@@ -35,7 +35,10 @@
           
             <div class="mb-3">
                 <label for="rainfall" class="form-label fw-semibold">Rainfall (mm):</label>
-                <input type="number" step="any" class="form-control" name="rainfall" id="rainfall" placeholder="Rainfall">
+                <input type="number" step="any" class="form-control @error('rainfall') is-invalid @enderror" name="rainfall" id="rainfall" placeholder="Rainfall" required>
+                @error('rainfall')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </div>
 
             <div class="d-grid mb-3">

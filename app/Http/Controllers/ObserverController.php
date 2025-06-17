@@ -12,19 +12,24 @@ class ObserverController extends Controller
     function observerdashboard(Request $request){
         return view('observer/dashboard');
     }
-    function addobserve( Request $request)
-    {
-       $request->validate([
-            'maxtemp'=>'required|min:1|max:2',
-            'mintemp'=>'required|min:1|max:2'
-            ]);
-            return  $request;
-    }
-     function observerprofile(){
+    
+    function observerprofile(){
         return view('observer/profile');
     }
 
     function addObserver(Request $request){
+        //validation
+        $request->validate([
+            'rainfall'=>['required','numeric','min:0','max:999.9','regex:/^\d{1,3}(\.\d)?$/']
+        ],[
+            'rainfall.required'=>'Rainfall value required.',
+            'rainfall.numeric'=>'Rainfall must be a valid number.',
+            'rainfall.min'=>'Rainfall cannot be less than 0.',
+            'rainfall.max'=>'Rainfall seems too high.Please recheck.',
+            'rainfall.regex'=>'Value can have at most 1 decimal place only.'
+        ]);
+
+        //Add Observation
         $weather_record=new Observation();
         $weather_record->observer_id=Auth::user()->observer_id;
         $weather_record->date=Carbon::now();

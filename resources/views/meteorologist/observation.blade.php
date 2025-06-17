@@ -5,7 +5,7 @@
 
 
 <div class="container table-responsive mt-5 mb-5">
-    <h3 style="text-align:center;">Observation Data</h3>
+    <h3 style="text-align:center;margin-bottom:2.5rem;">Observation Data</h3>
     <table class="table table-striped table-hover table-bordered border-black shadow text-center">
     <thead>
         <tr>

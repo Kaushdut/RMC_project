@@ -5,11 +5,16 @@
 <!--Search Bar-->
 <nav class="navbar bg-light shadow">
   <div class="container-fluid">
-    <a href="admin" class="btn btn-outline-primary">Admin Dashboard</a>
-    <form class="d-flex" role="search">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-      <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
+    <div class="btn-group" role="group">
+      <a href="admin" class="btn btn-outline-primary">Admin Dashboard</a>
+      <a href="adminInput" class="btn btn-outline-success">Add Employee</a>
+    </div>
+    <div>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
   </div>
 </nav>
 
@@ -21,7 +26,7 @@
 
 <!--User Table-->
 <div class="container table-responsive mt-5 mb-5">
-    <h3 style="text-align:center;">Employee Information</h3>
+    <h3 style="text-align:center;margin-bottom:2.5rem;">Employee Records</h3>
     <table class="table table-striped table-hover table-bordered border-black shadow text-center">
     <thead>
         <tr>
