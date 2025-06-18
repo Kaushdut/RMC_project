@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Station;
 use App\Http\Requests\AddStationRequest;
 use App\Http\Requests\AddUserRequest;
+use App\Http\Requests\EditUserRequest;
 
 class AdminController extends Controller
 {
@@ -51,7 +52,7 @@ class AdminController extends Controller
         return view('admin.edit',['users'=>$emp]);
     }
 
-    function edit(Request $request,$id){
+    function edit(EditUserRequest $request,$id){
         $employee=User::find($id);
         $employee->name=$request->name;
         $employee->username=$request->username;
