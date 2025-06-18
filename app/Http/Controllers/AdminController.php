@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Station;
+use App\Http\Requests\AddStationRequest;
+use App\Http\Requests\AddUserRequest;
 
 class AdminController extends Controller
 {
@@ -23,10 +25,7 @@ class AdminController extends Controller
         return view('admin.users',['users'=>$users]);
     }
     //Add User
-    function addUsers(Request $request){
-        //validation
-        
-        //Add Employee
+    function addUsers(AddUserRequest $request){
         $employee=new User();
         $employee->name=$request->name;
         $employee->username=$request->username;
@@ -40,8 +39,6 @@ class AdminController extends Controller
         if($employee){
             return view('admin.sucess');
         }
-        else
-            return "Error";
     }
     //Delete User
     function destroy(Request $request,$id){
@@ -87,17 +84,8 @@ class AdminController extends Controller
         return view('admin.stationView',['stations'=>$station]);
     }
     //Add Station
-    function addStations(Request $request){
-        //validation
-        $request->validate([
-            'id'=>'',
-            'station_name'=>'',
-            'district'=>'',
-            'latitude'=>'',
-            'longitude'=>''
-        ],[]);
-        //Add Station
-        $station=new Station;
+    function addStations(AddStationRequest $request){
+        $station=new Station();
         $station->id=$request->id;
         $station->station_name=$request->station_name;
         $station->district=$request->district;
@@ -105,9 +93,6 @@ class AdminController extends Controller
         $station->longitude=$request->longitude;
         if($station->save()){
             return redirect()->back()->with('success',"Station Inserted Successfully");
-        }
-        else{
-            return "Failed to Insert";
         }
     }
 }

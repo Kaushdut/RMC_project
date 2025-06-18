@@ -7,6 +7,7 @@
   <div class="container-fluid">
     <div class="btn-group" role="group">
       <a href="admin" class="btn btn-outline-primary">Admin Dashboard</a>
+      <a href="stationView" class="btn btn-outline-primary">View Stations</a>
       <a href="adminInput" class="btn btn-outline-success">Add Employee</a>
     </div>
     <div>

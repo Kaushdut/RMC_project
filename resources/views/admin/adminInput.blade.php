@@ -16,20 +16,28 @@
         @csrf
         <div class="mb-3">
             <label for="name" class="form-label fw-semibold">Name</label>
-            <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name" required>
+            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" placeholder="Enter Name" required>
+            @error('name')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="container">
             <div class="row">
                 <div class="mb-3 col-6">
                     <label for="username" class="form-label fw-semibold">UserName</label>
-                    <input type="text" class="form-control" id="username" name="username" placeholder="Enter UserName" required>
+                    <input type="text" class="form-control @error('username') is-invalid @enderror" id="username" name="username" placeholder="Enter UserName" required>
+                    @error('username')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
+
                 <div class="mb-3 col-6">
                     <label for="role" class="form-label fw-semibold">Designation</label>
                     <select class="form-select" aria-label="User Role" id="role" name="role">
                     <option value="observer" selected>Observer</option>
                     <option value="meteorologist">Meteorologist</option>
+                    <option value="admin">Admin</option>
                     </select>
                 </div>
             </div>
@@ -39,11 +47,18 @@
             <div class="row">
                 <div class="mb-3 col-6">
                     <label for="observer_id" class="form-label fw-semibold">Observer ID</label>
-                    <input type="number" class="form-control" id="observer_id" name="observer_id" placeholder="For Observer only">
+                    <input type="number" class="form-control @error('observer_id') is-invalid @enderror" id="observer_id" name="observer_id" placeholder="For Observer only">
+                    @error('observer_id')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
+
                 <div class="mb-3 col-6">
                     <label for="station_id" class="form-label fw-semibold">Station ID</label>
-                    <input type="number" class="form-control" id="station_id" name="station_id" placeholder="Enter Station ID">
+                    <input type="number" class="form-control @error('station_id') is-invalid @enderror" id="station_id" name="station_id" placeholder="Enter Station ID">
+                    @error('station_id')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -52,18 +67,28 @@
             <div class="row">
                 <div class="mb-3 col-6">
                     <label for="email" class="form-label fw-semibold">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email">
+                    <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="Enter Email">
+                    @error('email')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
+
                 <div class="mb-3 col-6">
                     <label for="phone" class="form-label fw-semibold">Mobile Number</label>
-                    <input type="phone" class="form-control" id="phone" name="phone" placeholder="Enter Mobile Number">
+                    <input type="phone" class="form-control @error('phone') is-invalid @enderror" id="phone" name="phone" placeholder="Enter Mobile Number">
+                    @error('phone')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
             </div>
         </div>
 
         <div class="mb-3">
             <label for="password" class="form-label fw-semibold">Password</label>
-            <input type="password" class="form-control" id="password" name="password" placeholder="Create Password">
+            <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" placeholder="Create Password">
+            @error('password')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="d-grid">
