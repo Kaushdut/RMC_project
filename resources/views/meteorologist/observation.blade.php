@@ -4,11 +4,16 @@
 @section('content')
 <nav class="navbar bg-light shadow">
   <div class="container-fluid">
-    <a href="meteorologist" class="btn btn-outline-primary">Meteorologist Dashboard</a>
-    <form class="d-flex" role="search">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-      <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
+    <div class="btn-group" role="group">
+      <a href="meteorologist" class="btn btn-outline-primary">Meteorologist dashboard</a>
+      <a href="meteorologistfilter1" class="btn btn-outline-success">Download Records</a>
+    </div>
+    <div>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
   </div>
 </nav>
 

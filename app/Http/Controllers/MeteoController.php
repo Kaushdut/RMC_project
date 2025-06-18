@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Observation;
 use Illuminate\Http\Request;
 use App\Models\Station;
+use Carbon\Carbon;
 class MeteoController extends Controller
 {
     //
@@ -20,23 +21,15 @@ class MeteoController extends Controller
         return view('meteorologist/observation',['datas'=>$obsdata]);
     }
 
-     function observationdownload(){
-            $obsdata = Station::with('observations')->get();
-      
-        return view('meteorologist/observationdownload', compact('obsdata'));
+   
 
-    }
-
-    function filter(Request $request)
+    function report(Request $request)
     { 
-       //$date=$request->input('filter_date');
-       // $datas=observation::with('station')
-        //->when($date , function($query) use ($date){
-          //  $query->wheredate('observation_date', $date);
-        //})
-        //->get();
+      $date=$request->input('filter_date') ?? Carbon::today()->toDateString();
+      $stations=Station::all();
+      $observations=Observation::whereDate('observation_date', $date)->get()->keyBy('station_id');
 
-        return view('meteorologist/observationdownload',compact('datas'));
+        return view('meteorologist/observationdownload',compact('stations','observations','date'));
     }
      
     

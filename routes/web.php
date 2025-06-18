@@ -75,9 +75,9 @@ Route::middleware(['auth','role:meteorologist'])->group(function () {
     Route::get('/meteorologist', [MeteoController::class, 'meteodashboard'])->name('meteo.dashboard');
     Route::get('/meteorologistpro', [MeteoController::class, 'meteoprofile'])->name('meteo.profile');
        Route::get('/meteorologistobservation', [MeteoController::class, 'observation'])->name('meteo.observation');
-        Route::get('/meteorologistobservationdownload', [MeteoController::class, 'observationdownload'])->name('meteo.observationdown'); 
-         Route::post('/meteorologistfilter1', [MeteoController::class, 'filter'])->name('meteo.filter');
-            Route::view('/meteorologistfilter1','meteorologist.observationdownload');
+     
+         Route::get('/meteorologistfilter1', [MeteoController::class, 'report'])->name('meteo.filter');
+     
 
 });
 Route::middleware(['auth','role:observer'])->group(function () {

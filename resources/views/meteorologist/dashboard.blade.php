@@ -45,7 +45,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Generate weather reports</h5>
                             <p class="card-text">Filter and download data as CSV or Excel</p>
-                            <a href="meteorologistobservationdownload" class="btn btn-primary">Download Records</a>
+                            <a href="meteorologistfilter1" class="btn btn-primary">Download Records</a>
                         </div>
                     </div>
                 </div>
