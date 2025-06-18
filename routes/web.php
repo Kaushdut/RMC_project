@@ -65,7 +65,10 @@ Route::middleware(['auth','role:admin'])->group(function () {
     Route::delete('/admin/users/{id}',[AdminController::class,'destroy'])->name('admin.users.destroy');
     Route::get('edit/{id}',[AdminController::class,'update'])->name('admin.edit.update');
     Route::put('editUser/{id}',[AdminController::class,'edit'])->name('admin.editUser.edit');
-    
+    //Station Table
+    Route::get('/stationView',[AdminController::class,'getStation']);
+    Route::view('/addStation','admin.addStation');
+    Route::post('/addStation',[AdminController::class,'addStations']);
 });
 Route::middleware(['auth','role:meteorologist'])->group(function () {
     // 🔹 Meteorologist

@@ -64,8 +64,8 @@
             <div class="card shadow text-center">
                 <div class="card-body">
                     <h5 class="card-title">Weather Stations</h5>
-                    <p class="card-text">View rainfall stations.</p>
-                    <a href="#" class="btn btn-primary">View Records</a>
+                    <p class="card-text">View and Add rainfall stations.</p>
+                    <a href="stationView" class="btn btn-primary">Stations</a>
                 </div>
             </div>
         </div>

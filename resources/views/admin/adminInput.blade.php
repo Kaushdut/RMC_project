@@ -1,9 +1,12 @@
 @extends('layouts.app')
-@section('title','Admin Input')
+@section('title','Add Employee')
 @section('content')
 <nav class="navbar bg-body-tertiary shadow">
   <div class="container-fluid">
-    <a href="admin" class="btn btn-outline-primary">Admin Dashboard</a>
+    <div class="btn-group" role="group">
+      <a href="admin" class="btn btn-outline-primary">Admin Dashboard</a>
+      <a href="users" class="btn btn-outline-primary">View Employee Records</a>
+    </div>
   </div>
 </nav>
 <div class="container mt-4 p-4">
