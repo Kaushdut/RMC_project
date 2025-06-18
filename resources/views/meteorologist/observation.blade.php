@@ -2,7 +2,15 @@
 @extends('layouts.app')
 @section('title','observations')
 @section('content')
-
+<nav class="navbar bg-light shadow">
+  <div class="container-fluid">
+    <a href="meteorologist" class="btn btn-outline-primary">Meteorologist Dashboard</a>
+    <form class="d-flex" role="search">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
 
 <div class="container table-responsive mt-5 mb-5">
     <h3 style="text-align:center;">Observation Data</h3>

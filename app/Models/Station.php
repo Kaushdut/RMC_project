@@ -19,9 +19,11 @@ class Station extends Model
 
     ];
 
-    // Optional: define the inverse relationship
+  
+   
     public function observations()
-    {
-        return $this->hasMany(Observation::class, 'station_id');
-    }
+ {
+    return $this->hasmany(Observation::class,'station_id');
+
+ }
 }
