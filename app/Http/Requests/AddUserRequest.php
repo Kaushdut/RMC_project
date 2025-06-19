@@ -27,7 +27,7 @@ class AddUserRequest extends FormRequest
             'email'=>['required','email','unique:users,email'],
             'password'=>['required'],
             'phone'=>['digits:10'],
-            'observer_id'=>['required_if:role,observer','numeric'],
+            'observer_id'=>['numeric','required_if:role,observer'],
             'station_id'=>['required','exists:stations,id'],
         ];
     }
@@ -58,16 +58,4 @@ class AddUserRequest extends FormRequest
         ];
     }
 
-    public function withValidator($validator)
-    {
-    $validator->after(function ($validator) {
-        $role = $this->input('role');
-        $observer_id = $this->input('observer_id');
-
-        //If role is NOT observer but observer_id is filled, throw error
-        if ($role !== 'observer' && !empty($observer_id)) {
-            $validator->errors()->add('observer_id', 'Observer ID must only be filled for Observer.');
-        }
-    });
-    }
 }

@@ -59,10 +59,10 @@ Route::middleware(['auth','role:admin'])->group(function () {
     Route::get('/admin', [AdminController::class, 'admindashboard'])->name('admin.dashboard');
     Route::get('/adminpro', [AdminController::class, 'adminprofile'])->name('admin.profile');
     //User Table
-    Route::get('/users',[AdminController::class,'getUsers']);
+    Route::get('/users',[AdminController::class,'getUsers'])->name('admin.users');
     Route::view('/adminInput','admin.adminInput');
     Route::post('/adminInput',[AdminController::class,'addUsers']);
-    Route::delete('/admin/users/{id}',[AdminController::class,'destroy'])->name('admin.users.destroy');
+    Route::delete('/admin/users/{id}',[AdminController::class,'deactivate'])->name('admin.users.deactivate');
     Route::get('edit/{id}',[AdminController::class,'update'])->name('admin.edit.update');
     Route::put('editUser/{id}',[AdminController::class,'edit'])->name('admin.editUser.edit');
     //Station Table

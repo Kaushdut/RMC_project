@@ -21,10 +21,27 @@ class AdminController extends Controller
     }
 
     //User Table
-    function getUsers(){
-        $users=User::get();
-        return view('admin.users',['users'=>$users]);
+//    function getUsers(){
+//        $users=User::get();
+//       return view('admin.users',['users'=>$users]);
+//    }
+
+    function getUsers(Request $request) {
+    $query = User::query();
+
+    if ($request->has('search')) {
+        $query->where(function($q) use ($request) {
+            $q->where('name', 'like', $request->search . '%')
+              ->orWhere('email', 'like', $request->search . '%')
+              ->orWhere('role','like', $request->search.'%');
+        });
     }
+
+    $users = $query->get();
+
+    return view('admin.users', ['users' => $users, 'search' => $request->search]);
+    }
+
     //Add User
     function addUsers(AddUserRequest $request){
         $employee=new User();
@@ -42,9 +59,14 @@ class AdminController extends Controller
         }
     }
     //Delete User
-    function destroy(Request $request,$id){
-        $emp=User::findOrFail($id)->delete();
-        return redirect()->back()->with('success', 'User deleted successfully.');
+    function deactivate($id){
+        $emp=User::findOrFail($id);
+        if (!str_starts_with($emp->email, 'deactivated.')){
+        $emp->email='deactivated.'.$emp->email;
+        $emp->password='deactivated.'.$emp->password;
+        }
+        $emp->save();
+        return redirect()->back()->with('success', 'User deactivated successfully.');
     }
     //Edit and Update in Database
     function update($id){
@@ -69,21 +91,22 @@ class AdminController extends Controller
             return "Failed to Update";
         }
     }
-    //Search Users
-    function searchUsers(Request $request){
-        $user=User::when($request->search,function($query)use($request){
-            return $query->whereAny([
-                'name',
-                'email'
-            ],'like','%'.$request->search.'%');
-        })->get();
-    }
 
     //Station Table
-    function getStation(){
-        $station=Station::get();
-        return view('admin.stationView',['stations'=>$station]);
+    function getStation(Request $request){
+        $query=Station::query();
+
+        if($request->has('search')){
+            $query->where(function($q) use ($request){
+                $q->where('id','like',$request->search.'%')
+                ->orWhere('station_name','like',$request->search.'%')
+                ->orWhere('district','like',$request->search.'%');
+            });
+        }
+        $station=$query->get();
+        return view('admin.stationView',['stations'=>$station, 'search' => $request->search]);
     }
+
     //Add Station
     function addStations(AddStationRequest $request){
         $station=new Station();
