@@ -3,7 +3,7 @@
 @section('title','observationsdownload')
 @section('content')
 
-=<nav class="navbar bg-light shadow">
+<nav class="navbar bg-light shadow">
   <div class="container-fluid">
     <div class="btn-group" role="group">
       <a href="meteorologist" class="btn btn-outline-primary">Meteorologist dashboard</a>
@@ -32,9 +32,7 @@
         <button type="submit" class="btn btn-primary">Filter</button>
       </div>
 
-      <div class="col-6 col-sm-3 col-md-2 d-grid">
-        <a href="meteorologistobservationdownload" class="btn btn-secondary">Reset</a>
-      </div>
+      
       
     </div>
   </div>
