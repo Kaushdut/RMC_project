@@ -103,6 +103,9 @@ Route::middleware(['auth', 'role_or:admin,meteorologist'])->group(function () {
     Route::get('/generateCsvfile', [MeteoController::class, 'generateCsv'])->name('meteo.generatefile');
     Route::post('/uploadfile', [MeteoController::class, 'uploadCsv'])->name('meteo.upload');   
     Route::get('/generatereport', [MeteoController::class, 'finalreport'])->name('meteo.generateReport');
+     Route::get('/stationView',[AdminController::class,'getStation']);
+    Route::view('/addStation','admin.addStation');
+    Route::post('/addStation',[AdminController::class,'addStations']);
 });
 
 

@@ -50,6 +50,15 @@
                     </div>
                 </div>
             </div>
+             <div class="col-sm-6 mt-2 mb-4">
+            <div class="card shadow text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Weather Stations</h5>
+                    <p class="card-text">View and Add rainfall stations.</p>
+                    <a href="stationView" class="btn btn-primary">Stations</a>
+                </div>
+            </div>
+        </div>
 
         </div>
 </div>
