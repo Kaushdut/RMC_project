@@ -35,7 +35,7 @@
                 <div class="mb-3 col-6">
                     <label for="role" class="form-label fw-semibold">Designation</label>
                     <select class="form-select" aria-label="User Role" id="role" name="role">
-                    <option value="observer" {{ old('role')=='meteorologist' ? 'selected' : ''}}>Observer</option>
+                    <option value="observer" {{ old('role')=='observer' ? 'selected' : ''}}>Observer</option>
                     <option value="meteorologist" {{ old('role')=='meteorologist' ? 'selected' : ''}}>Meteorologist</option>
                     <option value="admin" {{ old('role') == 'admin' ? 'selected' : '' }}>Admin</option>
                     </select>
