@@ -1,7 +1,15 @@
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 @extends('layouts.app')
 @section('title','observationsdownload')
 @section('content')
+@if (session('success'))
+    <div class="alert alert-success alert-dismissible fade show mt-3 mx-3" role="alert">
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@endif
 
 <nav class="navbar bg-light shadow">
   <div class="container-fluid">
@@ -10,13 +18,28 @@
       <a href="meteorologistobservation" class="btn btn-outline-success">View Weather Records</a>
     </div>
     <div>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+     <form action="uploadfile" method="POST" enctype="multipart/form-data" class="row g-2 align-items-center">
+    @csrf
+    <div class="col-12 col-md-8">
+        <input type="file" name="csv_file" class="form-control" accept=".csv" required>
+    </div>
+    <div class="col-12 col-md-4 d-grid">
+        <button type="submit" class="btn btn-outline-success">Upload File</button>
+    </div>
+</form>
+
     </div>
   </div>
 </nav>
+<div class="d-flex justify-content-end mb-3 mt-4 " style="margin-right:15px;">
+  
+    <a href="{{ route('meteo.generatefile', ['filter_date' => $date]) }}" class="btn btn-outline-success">
+  <i class="bi bi-download me-1"></i> Download CSV
+</a>
+
+  
+</div>
+
   <h3 style="text-align:center;" class="mt-4">Observation Data</h3>
 <form action="meteorologistfilter1" method="get" class="mt-1">
      @csrf

@@ -8,12 +8,11 @@
       <a href="meteorologist" class="btn btn-outline-primary">Meteorologist dashboard</a>
       <a href="meteorologistfilter1" class="btn btn-outline-success">Download Records</a>
     </div>
-    <div>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
+   <div class="d-flex justify-content-end mb-3 mt-4 " style="margin-right:15px;">
+  
+    <a href="{{ route('meteo.generateReport', ['start_date' => request('start_date') ,'station_id' => request('station_id'),'range_type' =>request('range_type')]) }}" class="btn btn-outline-success">
+  <i class="bi bi-download me-1"></i> Download CSV
+    </a>
   </div>
 </nav>
 
@@ -50,9 +49,13 @@
     </div>
   </div>
 </form>
+<div class="d-flex justify-content-center mt-4">
+    {{ $datas->links() }}
+</div>
+
 
 <div class="container table-responsive mt-5 mb-5">
-    <h3 style="text-align:center;margin-bottom:2.5rem;">Observation Data</h3>
+    <h3 style="text-align:center;margin-bottom:2.5rem;">Final Report</h3>
     <table class="table table-striped table-hover table-bordered border-black shadow text-center">
     <thead>
         <tr>

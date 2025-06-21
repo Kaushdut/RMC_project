@@ -21,6 +21,8 @@ return Application::configure(basePath: dirname(__DIR__))
     $middleware->alias([
         'role' => \App\Http\Middleware\RoleMiddleware::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
+        'role_or' => \App\Http\Middleware\RoleOrMiddleware::class,
+
         // other aliases if needed
     ]);
 })
