@@ -27,8 +27,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
   <li class="nav-item">
-    <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
+    @if (Auth::user()->role === 'admin')
+      <a href="{{ route('admin.dashboard') }}" class="nav-link active text-white">Home</a>
+    @elseif (Auth::user()->role === 'meteorologist')
+      <a href="{{ route('meteo.dashboard') }}" class="nav-link active text-white">Home</a>
+    @endif
   </li>
+
   <li class="nav-item">
    <form method="POST" action="{{ route('logout') }}">
                             @csrf

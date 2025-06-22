@@ -4,8 +4,8 @@
 <nav class="navbar bg-body-tertiary shadow">
   <div class="container-fluid">
     <div class="btn-group" role="group">
-      <a href="admin" class="btn btn-outline-primary">Admin Dashboard</a>
-      <a href="users" class="btn btn-outline-primary">View Employee Records</a>
+      <a href="admin" class="btn btn-outline-primary">Home</a>
+      <a href="users" class="btn btn-outline-primary">View Users</a>
     </div>
   </div>
 </nav>

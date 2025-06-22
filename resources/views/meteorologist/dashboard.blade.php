@@ -18,7 +18,7 @@
                 <div class="row align-items-center">
                     <div class="col-md-8">
                         <h1 class="display-5 fw-bold mb-3">Welcome to the Meteorologist Dashboard</h1>
-                         <p class="lead mb-4"> Analyze weather data, generate reports, and monitor trends— all in one place</p>
+                         <p class="lead mb-4"> Analyze rainfall data, generate reports, and monitor trends— all in one place</p>
                     </div>
                     <div class="col-md-4 text-center d-none d-md-block">
                         <img src= "{{ asset('images/cloud.png') }}"  alt="Weather Icon" class="img-fluid" style="max-height: 180px;">
@@ -27,30 +27,33 @@
             </div>
         </div>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6 mb-5 mb-sm-3 mt-2">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">View Weather Observations</h5>
-                            <p class="card-text">View and download weather records.</p>
-                            <a href="meteorologistobservation" class="btn btn-primary">View Records</a>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-sm-6 mt-2">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Generate weather reports</h5>
-                            <p class="card-text">Filter and download data as CSV or Excel</p>
-                            <a href="meteorologistfilter1" class="btn btn-primary">Download Records</a>
-                        </div>
-                    </div>
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-2 g-4 mt-4">
+        <!--Card 1-->
+        <div class="col-sm-6 mt-2 mb-4">
+            <div class="card shadow text-center">
+                <div class="card-body">
+                    <h5 class="card-title">View Weather Observations</h5>
+                    <p class="card-text">View and download weather records.</p>
+                    <a href="meteorologistobservation" class="btn btn-primary">View Records</a>
                 </div>
             </div>
-             <div class="col-sm-6 mt-2 mb-4">
+        </div>
+
+
+        <!--Card 2-->
+        <div class="col-sm-6 mt-2 mb-4">
+            <div class="card shadow text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Generate weather reports</h5>
+                    <p class="card-text">Filter and download data as CSV or Excel</p>
+                    <a href="meteorologistfilter1" class="btn btn-primary">Download Records</a>
+                </div>
+            </div>
+        </div>
+
+        <!--Card 3-->
+        <div class="col-sm-6 mt-2 mb-4">
             <div class="card shadow text-center">
                 <div class="card-body">
                     <h5 class="card-title">Weather Stations</h5>
@@ -60,7 +63,7 @@
             </div>
         </div>
 
-        </div>
+    </div>
 </div>
 @endsection
 
