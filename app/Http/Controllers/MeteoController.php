@@ -43,7 +43,7 @@ class MeteoController extends Controller
             $query->where('station_id', $stationId);
         }
 
-        $datas = $query->paginate(10)->withQueryString();
+        $datas = $query->get();
 
         $allstations = Station::all();
 

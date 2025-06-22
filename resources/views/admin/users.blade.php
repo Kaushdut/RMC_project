@@ -3,21 +3,13 @@
 @section('content')
 @php use Illuminate\Support\Str; @endphp
 
-<!--Search Bar-->
+<!--Nav Bar-->
 <nav class="navbar bg-light shadow">
   <div class="container-fluid">
     <div class="btn-group" role="group">
-      <a href="admin" class="btn btn-outline-primary">Admin Dashboard</a>
+      <a href="admin" class="btn btn-outline-primary">Home</a>
       <a href="stationView" class="btn btn-outline-primary">View Stations</a>
-      <a href="adminInput" class="btn btn-outline-success">Add Employee</a>
-    </div>
-    <!--Search-->
-    <div>
-      <form class="d-flex" role="search" action="users" method="get">
-        <input class="form-control me-2" type="search" name="search" placeholder="Name or Role or Email" aria-label="Search" value="{{ @$search }}"/>
-        <button class="btn btn-outline-success me-2" type="submit">Search</button>
-        <a href="users" class="btn btn-outline-secondary">Clear</a>
-      </form>
+      <a href="adminInput" class="btn btn-outline-success">Add User</a>
     </div>
   </div>
 </nav>
@@ -29,14 +21,26 @@
 @endif
 
 <!--User Table-->
-<div class="container table-responsive mt-5 mb-5">
-    <h3 style="text-align:center;margin-bottom:2.5rem;">Employee Records</h3>
-    <table class="table table-striped table-hover table-bordered border-black shadow text-center">
+<div class="container mt-5 mb-5">
+
+  <div  class="p-1 mb-2">
+      <form class="d-flex" role="search" action="users" method="get">
+      <input class="form-control me-2 rounded-pill" type="search" name="search" placeholder="Search by...  Name or Role or Email" aria-label="Search" value="{{ @$search }}"/>
+        <button class="btn btn-outline-success me-2 rounded-pill" type="submit">Search</button>
+        <a href="users" class="btn btn-outline-secondary rounded-pill">Clear</a>
+      </form>
+    </div>
+
+    <div class="mt-5 p-4 border border-secondary-subtle rounded-4 shadow" style="width:100%;">
+    <h3 class="fw-medium mb-4 mt-2 fs-2 text-secondary-emphasis">User Records</h3>
+    <div class="table-responsive">
+    <table class="table table-striped table-bordered shadow table-hover text-center">
     <thead>
         <tr>
             <td style="background-color:#00538C;color:white;">ID</td>
             <td style="background-color:#00538C;color:white;">NAME</td>
             <td style="background-color:#00538C;color:white;">ROLE</td>
+            <td style="background-color:#00538C;color:white;">OBSERVER ID</td>
             <td style="background-color:#00538C;color:white;">STATION ID</td>
             <td style="background-color:#00538C;color:white;">MOBILE</td>
             <td style="background-color:#00538C;color:white;">EMAIL</td>
@@ -44,12 +48,13 @@
             <td style="background-color:#00538C;color:white;">DEACTIVATE</td>
         </tr>
     </thead>
-    <tbody class="table-group-divider">
+    <tbody>
     @foreach($users as $user)
-          <tr @if(Str::startsWith($user->email,'deactivated.')) class="table-danger table-borderd border-dark" @endif">
-            <td>{{$user->observer_id}}</td>
+          <tr @if(Str::startsWith($user->email,'deactivated.')) class="table-danger table-borderd" @endif">
+            <td>{{$user->id}}</td>
             <td>{{$user->name}}</td>
             <td>{{$user->role}}</td>
+            <td>{{$user->observer_id}}</td>
             <td>{{$user->station_id}}</td>
             <td>{{$user->phone}}</td>
             <td>{{$user->email}}</td>
@@ -65,5 +70,7 @@
     @endforeach
     </tbody>
     </table>
+    </div>
+    </div>
     </div>
 @endsection
