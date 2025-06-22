@@ -49,9 +49,7 @@
     </div>
   </div>
 </form>
-<div class="d-flex justify-content-center mt-4">
-    {{ $datas->links() }}
-</div>
+
 
 
 <div class="container table-responsive mt-5 mb-5">
