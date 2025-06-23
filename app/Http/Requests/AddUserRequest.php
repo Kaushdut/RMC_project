@@ -29,6 +29,7 @@ class AddUserRequest extends FormRequest
             'phone'=>['digits:10'],
             'observer_id'=>['required_if:role,observer'],
             'station_id'=>['required','exists:stations,id'],
+            'stations' => ['required_if:role,multistationuser'],
         ];
     }
 
@@ -51,6 +52,7 @@ class AddUserRequest extends FormRequest
             'phone.digits'=>'Phone number must have exactly 10 digits.',
 
             'observer_id.required_if'=>'Observer ID required for Observer.',
+            'stations.required_if'=>'Required for Multi Station User.',
 
             'station_id.required'=>'Station selection is required.',
             'station_id.exists'=>'This station is invalid or does not exist.',

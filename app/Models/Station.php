@@ -22,8 +22,13 @@ class Station extends Model
   
    
     public function observations()
- {
-    return $this->hasmany(Observation::class,'station_id');
+    {
+        return $this->hasmany(Observation::class,'station_id');
+    }
 
- }
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
+
 }

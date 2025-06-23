@@ -25,7 +25,7 @@ class AdminController extends Controller
 //        $users=User::get();
 //       return view('admin.users',['users'=>$users]);
 //    }
-
+    //Search
     function getUsers(Request $request) {
     $query = User::query();
 
@@ -42,6 +42,12 @@ class AdminController extends Controller
     return view('admin.users', ['users' => $users, 'search' => $request->search]);
     }
 
+    public function input()
+    {
+        $stations = Station::all();
+        return view('admin.adminInput', compact('stations'));
+    }
+
     //Add User
     function addUsers(AddUserRequest $request){
         $employee=new User();
@@ -54,9 +60,8 @@ class AdminController extends Controller
         $employee->observer_id=$request->observer_id;
         $employee->station_id=$request->station_id;
         $employee->save();
-        if($employee){
-            return view('admin.sucess');
-        }
+        $employee->stations()->sync($request->input('stations'));
+        return view('admin.sucess');
     }
     //Delete User
     function deactivate($id){

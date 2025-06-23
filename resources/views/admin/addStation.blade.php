@@ -4,8 +4,8 @@
 <nav class="navbar bg-body-tertiary shadow">
   <div class="container-fluid">
     <div class="btn-group" role="group">
-      <a href="admin" class="btn btn-outline-primary">Admin Dashboard</a>
-      <a href="stationView" class="btn btn-outline-primary">View Station Record</a>
+      <a href="admin" class="btn btn-outline-primary">Home</a>
+      <a href="stationView" class="btn btn-outline-primary">View Stations</a>
     </div>
   </div>
 </nav>

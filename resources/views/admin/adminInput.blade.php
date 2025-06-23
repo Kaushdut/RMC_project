@@ -1,6 +1,12 @@
 @extends('layouts.app')
 @section('title','Add Employee')
 @section('content')
+
+<!-- Choices CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+<!-- Choices JS -->
+<script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+
 <nav class="navbar bg-body-tertiary shadow">
   <div class="container-fluid">
     <div class="btn-group" role="group">
@@ -38,6 +44,7 @@
                     <option value="observer" {{ old('role')=='observer' ? 'selected' : ''}}>Observer</option>
                     <option value="meteorologist" {{ old('role')=='meteorologist' ? 'selected' : ''}}>Meteorologist</option>
                     <option value="admin" {{ old('role') == 'admin' ? 'selected' : '' }}>Admin</option>
+                    <option value="multistationuser" {{ old('role') == 'multistationuser' ? 'selected' : '' }}>Multi Station User</option>
                     </select>
                 </div>
             </div>
@@ -84,6 +91,20 @@
         </div>
 
         <div class="mb-3">
+            <label for="stations" class="form-label fw-semibold">Assign Stations</label>
+            <select id="stations" name="stations[]" multiple class="form-select @error('stations') is-invalid @enderror">
+            @foreach($stations as $station)
+            <option value="{{ $station->id }}" {{ collect(old('stations'))->contains($station->id) ? 'selected' : '' }}>
+                {{ $station->station_name }}
+            </option>
+            @endforeach
+            </select>
+            @error('stations')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+        </div>
+
+        <div class="mb-3">
             <label for="password" class="form-label fw-semibold">Password</label>
             <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" placeholder="Create Password">
             @error('password')
@@ -100,3 +121,14 @@
 </div>
 
 @endsection
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const element = document.getElementById('stations');
+        new Choices(element, {
+            removeItemButton: true,
+            placeholderValue: 'Search and select stations for multiuser only',
+            searchEnabled: true,
+            shouldSort: false
+        });
+    });
+</script>
