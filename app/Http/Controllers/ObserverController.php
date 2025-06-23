@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Observation;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use App\Http\Requests\ObservationRequest;
 
 class ObserverController extends Controller
 {
@@ -17,18 +18,7 @@ class ObserverController extends Controller
         return view('observer/profile');
     }
 
-    function addObserver(Request $request){
-        //validation
-        $request->validate([
-            'rainfall'=>['required','numeric','min:0','max:999.9','regex:/^\d{1,3}(\.\d)?$/']
-        ],[
-            'rainfall.required'=>'Rainfall value required.',
-            'rainfall.numeric'=>'Rainfall must be a valid number.',
-            'rainfall.min'=>'Rainfall cannot be less than 0.',
-            'rainfall.max'=>'Rainfall seems too high.Please recheck.',
-            'rainfall.regex'=>'Value can have at most 1 decimal place only.'
-        ]);
-
+    function addObserver(ObservationRequest $request){
         //Add Observation
         $weather_record=new Observation();
         $weather_record->observer_id=Auth::user()->observer_id;

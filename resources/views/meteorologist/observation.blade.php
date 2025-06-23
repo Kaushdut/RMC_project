@@ -9,10 +9,7 @@
       <a href="meteorologist" class="btn btn-outline-primary">Home</a>
       <a href="meteorologistfilter1" class="btn btn-outline-success">Upload Records</a>
     </div>
-    <!--<div class="d-flex justify-content-end" style="margin-right:15px;">
-    <a href="{{ route('meteo.generateReport', ['start_date' => request('start_date') ,'station_id' => request('station_id'),'range_type' =>request('range_type')]) }}" class="btn btn-outline-success">
-    Download CSV
-    </a>-->
+    
   @elseif (Auth::user()->role === 'admin')
       <a href="{{ route('admin.dashboard') }}" class="btn btn-outline-primary">Home</a>
   @endif

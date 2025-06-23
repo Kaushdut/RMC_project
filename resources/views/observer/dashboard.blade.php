@@ -17,7 +17,7 @@
             @csrf
             <div class="mb-3">
                 <label for="observation_date" class="form-label fw-semibold">Date of Observation:</label>
-                <input type="date" class="form-control" name="observation_date" id="observation_date" value="{{ date('Y-m-d') }}">   
+                <input type="date" class="form-control" name="observation_date" id="observation_date" value="{{ date('Y-m-d') }}" max="{{ date('Y-m-d') }}">   
             </div>
 
             <div class="container">
