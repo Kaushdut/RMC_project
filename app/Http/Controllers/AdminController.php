@@ -124,4 +124,10 @@ class AdminController extends Controller
             return redirect()->back()->with('success',"Station Inserted Successfully");
         }
     }
+
+    //View stations for Multi Station User
+    function multi(){
+        $users=User::with('stations')->get();
+        return view('admin.users.multi',compact('users'));
+    }
 }

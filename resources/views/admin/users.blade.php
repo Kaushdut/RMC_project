@@ -53,7 +53,22 @@
             <td>{{$user->name}}</td>
             <td>{{$user->role}}</td>
             <td>{{$user->observer_id}}</td>
-            <td>{{$user->station_id}}</td>
+            <td>
+              @if($user->role == 'multistationuser') 
+                <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="collapse" data-bs-target="#stations-{{ $user->id }}">
+                    View Stations ({{ $user->stations->count() }})
+                </button>
+                <div id="stations-{{ $user->id }}" class="collapse mt-2">
+                    <ul class="list-group list-group-flush">
+                        @foreach($user->stations as $station)
+                            <li class="list-group-item p-1">{{ $station->id }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+              @else
+                {{$user->station_id}}
+              @endif             
+            </td>
             <td>{{$user->phone}}</td>
             <td>{{$user->email}}</td>
             <td><a href="{{ route('admin.edit.update',$user->id) }}" class="btn btn-outline-primary">EDIT</a></td>

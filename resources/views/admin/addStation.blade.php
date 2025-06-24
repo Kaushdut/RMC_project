@@ -9,13 +9,14 @@
     </div>
   </div>
 </nav>
-@if(session('success'))
+
+<div class="container mt-4 p-4">
+    @if(session('success'))
     <div class="alert alert-success">
         {{ session('success') }}
     </div>
-@endif
+    @endif
 
-<div class="container mt-4 p-4">
     <div class="card shadow p-4 w-100 w-sm-75 w-md-50">
         <h3 class="mb-4 text-center">Enter Station Details</h3>    
         <form action="addStation" method="post">
