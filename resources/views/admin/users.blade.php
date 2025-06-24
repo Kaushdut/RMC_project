@@ -14,15 +14,13 @@
   </div>
 </nav>
 
-@if(session('success'))
+<!--User Table-->
+<div class="container mt-5 mb-5">
+  @if(session('success'))
     <div class="alert alert-success">
         {{ session('success') }}
     </div>
-@endif
-
-<!--User Table-->
-<div class="container mt-5 mb-5">
-
+  @endif
   <div  class="p-1 mb-2">
       <form class="d-flex" role="search" action="users" method="get">
       <input class="form-control me-2 rounded-pill" type="search" name="search" placeholder="Search by...  Name or Role or Email" aria-label="Search" value="{{ @$search }}"/>

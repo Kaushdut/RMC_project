@@ -111,8 +111,10 @@ Route::middleware(['auth', 'role_or:admin,meteorologist'])->group(function () {
 });
 
 Route::middleware(['auth','role:multistationuser'])->group(function () {
- Route::get('/multistationuser', [MultiStationUserController::class, 'viewObservations'])->name('multiuser.dashboard');
-   Route::get('/multistationuserpro', [MultiStationUserController::class, 'multistationuserprofile'])->name('mutltistationuser.profile');
+    Route::get('/multistationuser', [MultiStationUserController::class, 'viewObservations'])->name('multiuser.dashboard');
+    Route::get('/multistationuserpro', [MultiStationUserController::class, 'multistationuserprofile'])->name('mutltistationuser.profile');
+    Route::patch('/multistationuser/{id}',[MultiStationUserController::class,'updateRainfall'])->name('multistationuser.updateRainfall');
+    Route::post('/multistationuser/rainfall',[MultiStationUserController::class,'addRainfall'])->name('multistationuser.addRainfall');
 });
 
 

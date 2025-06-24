@@ -13,6 +13,11 @@
     </nav>
 
 <div class="container mt-5 mb-5">
+  @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+  @endif
   <div class="container mb-3 d-flex justify-content-between">
     <!--Filter-->
     <div class="flex-grow-1">
@@ -43,23 +48,54 @@
         <thead>
           <tr>
                
-            <td style="background-color:#00538C;color:white;">STATION ID</td>
             <td style="background-color:#00538C;color:white;">DATE</td>
+            <td style="background-color:#00538C;color:white;">STATION ID</td>
             <td style="background-color:#00538C;color:white;">STATION NAME</td>
             <td style="background-color:#00538C;color:white;">LATITUDE</td>
             <td style="background-color:#00538C;color:white;">LONGITUDE</td>
-            <td style="background-color:#00538C;color:white;">RAINFALL</td>       
+            <td style="background-color:#00538C;color:white;">RAINFALL (mm)</td>       
           </tr>
         </thead>
         <tbody>
          @foreach($stations as $station)
+          @php
+            $observation = $observations[$station->id] ?? null;
+          @endphp
           <tr>
+            <td>{{$date}}</td>
             <td>{{$station->id}}</td>
-                <td>{{$date}}</td>
             <td>{{$station->station_name}}</td>
             <td>{{$station->latitude}}</td>
             <td>{{$station->longitude}}</td> 
-            <td>{{$observations[$station->id]->rainfall ?? 'Not Reported'}}</td>
+            <td>
+              <form action="{{$observation ? route('multistationuser.updateRainfall',$observation->id) : route('multistationuser.addRainfall')}}" method="post">
+                @csrf
+                @if($observation)
+                <input type="hidden" name="_method" value="patch">
+                @endif
+
+                <input type="hidden" name="station_id" value="{{$station->id}}">
+                <input type="hidden" name="observation_date" value="{{$date}}">
+
+                <div class="d-flex flex-wrap gap-3 p-4v">
+                  <div>
+                    <input type="number" step="any" 
+                      class="form-control {{ old('station_id') == $station->id && $errors->has('rainfall') ? 'is-invalid' : '' }}" 
+                      name="rainfall" id="rainfall" placeholder="Rainfall" 
+                      value="{{ old('station_id') == $station->id ? old('rainfall') : ($observation->rainfall ?? '') }}"  
+                      required>
+                    @if(old('station_id') == $station->id)
+                      @error('rainfall')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                      @enderror
+                    @endif
+                  </div>
+                  <div>
+                    <button type="submit" class="btn btn-outline-success">Save</button>
+                  </div>
+                </div>
+              </form>
+            </td>
           </tr>
         @endforeach
         </tbody>

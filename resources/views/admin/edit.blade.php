@@ -82,11 +82,6 @@
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
         </div>
-<!--
-        <div>
-            <a href="/users" class="btn btn-danger">Cancel</a>
-        </div>
--->
 
         <div class="d-grid mb-3">
             <button type="submit" class="btn btn-primary mb-3 mt-3" name="submit">Update</button>

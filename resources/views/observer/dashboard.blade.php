@@ -45,15 +45,13 @@
                 <button type="submit" class="btn btn-primary" name="submit">Submit</button>
             </div>
         </form>
+
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
     </div>
-
-    @if(session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-    @endif
-
-
 @endsection
 
 @section('scripts')

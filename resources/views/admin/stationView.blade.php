@@ -20,7 +20,7 @@
 <div class="container table-responsive mt-5 mb-5">
     <div class="p-1 mb-2">
         <form class="d-flex" role="search" action="stationView" method="get">
-            <input class="form-control me-2 rounded-pill" type="search" placeholder="ID or Name or District" aria-label="Search" name="search" value="{{ @$search}}"/>
+            <input class="form-control me-2 rounded-pill" type="search" placeholder="Search by...ID or Name or District" aria-label="Search" name="search" value="{{ @$search}}"/>
             <button class="btn btn-outline-success me-2 rounded-pill" type="submit">Search</button>
             <a href="stationView" class="btn btn-outline-secondary rounded-pill">Clear</a>
         </form>
