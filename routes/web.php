@@ -111,7 +111,8 @@ Route::middleware(['auth', 'role_or:admin,meteorologist'])->group(function () {
 });
 
 Route::middleware(['auth','role:multistationuser'])->group(function () {
-    Route::get('/multistationuser', [MultiStationUserController::class, 'viewObservations'])->name('multiuser.dashboard');
+    Route::get('/multistationuser', [MultiStationUserController::class, 'viewObservations'])->name('multistationuser.dashboard');
+     Route::get('/generateCsvfile', [MultiStationUserController::class, 'generateCsv'])->name('multiuser.generatefile');
     Route::get('/multistationuserpro', [MultiStationUserController::class, 'multistationuserprofile'])->name('mutltistationuser.profile');
     Route::patch('/multistationuser/{id}',[MultiStationUserController::class,'updateRainfall'])->name('multistationuser.updateRainfall');
     Route::post('/multistationuser/rainfall',[MultiStationUserController::class,'addRainfall'])->name('multistationuser.addRainfall');

@@ -40,7 +40,7 @@
    <div class="p-4 border border-secondary-subtle rounded-4 shadow" style="width:100%;">
     <div class="d-flex justify-content-between mb-4 mt-2">  
       <h3 class="fw-medium fs-3 text-secondary-emphasis">Rainfall Data</h3>
-      <a href="#" class="btn btn-secondary rounded-pill align-self-center">
+      <a href="{{ route('multiuser.generatefile', ['filter_date' => $date]) }}" class="btn btn-secondary rounded-pill align-self-center">
       Download CSV</a>
     </div>  
     <div class="table-responsive">

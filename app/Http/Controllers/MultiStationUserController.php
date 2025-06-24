@@ -52,5 +52,48 @@ class MultiStationUserController extends Controller
       $observation->save();
       return redirect()->back()->with('success','Rainfall Updated Successfully.');
     }
+   public function generateCsv(Request $request)
+   {
+         $user = auth()->user(); // the logged-in multi-observer
+        $date=$request->input('filter_date') ?? Carbon::today()->toDateString();
+        
+        $stationIds = $user->stations()->pluck('stations.id');
+        $stations = Station::whereIn('id',$stationIds)->get();
+        $observations = Observation::whereDate('observation_date', $date)->get()->keyBy('station_id');
+        
+        $filename="observation.csv";
+        $headers=[
+            'Content-Type ' =>'text/csv; charset=UTF-8' ,
+            'Content-Disposition' =>'attachment; filename="'. $filename .'"',
 
+
+        ];
+
+        $callback = function () use ($stations , $observations ,$date)
+        {
+              echo "\xEF\xBB\xBF";
+              $file = fopen('php://output', 'w');
+                fputcsv($file, ['STATION ID', 'DATE', 'STATION NAME', 'LATITUDE', 'LONGITUDE', 'RAINFALL']);
+
+        foreach ($stations as $station) {
+            $obs = $observations[$station->id] ?? null;
+
+            fputcsv($file, [
+                $station->id,
+                '="' . $date . '"',
+                $station->station_name,
+                $station->latitude,
+                $station->longitude,
+               $obs ? $obs->rainfall : ''
+
+            ]);
+        }
+
+        fclose($file);
+    };
+
+    return Response::stream($callback, 200, $headers);
+
+        }
+   
 }
