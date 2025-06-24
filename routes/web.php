@@ -61,7 +61,7 @@ Route::middleware(['auth','role:admin'])->group(function () {
     Route::get('/adminpro', [AdminController::class, 'adminprofile'])->name('admin.profile');
     //User Table
     Route::get('/users',[AdminController::class,'getUsers'])->name('admin.users');
-    Route::get('/users/multi',[AdminController::class,'multi'])->name('admin.users.multi');
+    //Route::get('/users/multi',[AdminController::class,'multi'])->name('admin.users.multi');
     //Route::view('/adminInput','admin.adminInput');
     Route::get('/adminInput', [AdminController::class, 'input']);
     Route::post('/adminInput',[AdminController::class,'addUsers']);

@@ -41,7 +41,7 @@ class AuthenticatedSessionController extends Controller
             return redirect()->route('meteo.dashboard');
         }
         elseif($user->role === 'multistationuser'){
-            return redirect()->route('multiuser.dashboard');
+            return redirect()->route('multistationuser.dashboard');
         }
          else 
         {
