@@ -110,8 +110,10 @@ Route::middleware(['auth', 'role_or:admin,meteorologist'])->group(function () {
     Route::post('/addStation',[AdminController::class,'addStations']);
 });
 
+Route::middleware(['auth','role:multistationuser'])->group(function () {
  Route::get('/multistationuser', [MultiStationUserController::class, 'viewObservations'])->name('multiuser.dashboard');
-
+   Route::get('/multistationuserpro', [MultiStationUserController::class, 'multistationuserprofile'])->name('mutltistationuser.profile');
+});
 
 
 

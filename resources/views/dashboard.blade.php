@@ -21,8 +21,11 @@
                         @elseif (Auth::user()->role === 'meteorologist')
                             <a href="{{ route('meteo.dashboard') }}" class="btn btn-outline-success">Go to Meteorologist Dashboard</a>
                         @elseif (Auth::user()->role === 'observer')
-                            <a href="{{ route('observer.dashboard') }}" class="btn btn-outline-warning">Go to Observer Dashboard</a>
-                        @else
+                            <a href="{{ route('observer.dashboard') }}" class="btn btn-outline-warning">Go to Your Dashboard</a>
+                       
+                        @elseif(Auth::user()->role === 'multistationuser')
+                            <a href="{{route('multistationuser.dashboard')}}" class="btn btn-outline-warning">Go to Your Dashboard</a>
+                            @else
                             <p class="text-danger">Unauthorized role.</p>
                         @endif
                     </div>

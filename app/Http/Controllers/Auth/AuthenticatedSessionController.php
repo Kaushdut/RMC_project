@@ -35,9 +35,16 @@ class AuthenticatedSessionController extends Controller
         // Redirect based on role
         if ($user->role === 'admin') {
             return redirect()->route('admin.dashboard');
-        } elseif ($user->role === 'meteorologist') {
+        }
+         elseif ($user->role === 'meteorologist') 
+         {
             return redirect()->route('meteo.dashboard');
-        } else {
+        }
+        elseif($user->role === 'multistationuser'){
+            return redirect()->route('multiuser.dashboard');
+        }
+         else 
+        {
             return redirect()->route('observer.dashboard');
         }
     

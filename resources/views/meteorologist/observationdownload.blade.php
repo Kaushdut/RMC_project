@@ -92,7 +92,7 @@
             <td>{{$station->station_name}}</td>
             <td>{{$station->latitude}}</td>
             <td>{{$station->longitude}}</td> 
-            <td>{{$observations[$station->id]->rainfall ?? 'Not Reported'}}</td>
+            <td>{{$observations->rainfall ?? 'Not Reported'}}</td>
           </tr>
         @endforeach
         </tbody>
