@@ -66,7 +66,7 @@ class MeteoController extends Controller
 
 
 
-public function generateCsv(Request $request) // incomplete csv download
+public function generateCsv( Request $request) // incomplete csv download
 {
     $date = $request->input('filter_date') ?? Carbon::today()->toDateString();
 
@@ -106,7 +106,12 @@ public function generateCsv(Request $request) // incomplete csv download
     };
 
     return Response::stream($callback, 200, $headers);
+
 }
+    
+
+  
+
     
 
 

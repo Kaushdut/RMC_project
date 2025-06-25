@@ -86,7 +86,7 @@ Route::middleware(['auth','role:meteorologist'])->group(function () {
        Route::get('/meteorologistobservation', [MeteoController::class, 'observation'])->name('meteo.observation');
      
          Route::get('/meteorologistfilter1', [MeteoController::class, 'report'])->name('meteo.filter');
-            Route::get('/generateCsvfile', [MeteoController::class, 'generateCsv'])->name('meteo.generatefile');
+         Route::get('/downloadfile', [MeteoController::class, 'generateCsv'])->name('meteo.download');   
          Route::post('/uploadfile', [MeteoController::class, 'uploadCsv'])->name('meteo.upload');   
              Route::get('/generatereport', [MeteoController::class, 'finalreport'])->name('meteo.generateReport');
        
