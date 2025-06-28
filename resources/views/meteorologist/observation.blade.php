@@ -32,7 +32,7 @@
       </select>
 
     </div>
-    <div class="col-md-3">
+    <div class="col-md-4">
       <label for="range_type" class="form-label fw-semibold">Date Range</label>
       <select name="range_type" class="form-select">
         <option value="" default>None</option>
@@ -41,9 +41,14 @@
         <option value="monthly"  {{request('range_type')== 'monthly' ? 'selected' : '' }}>Monthly</option>
       </select>
     </div>
-<div class="col-md-3">
+
+<div class="col-md-4">
       <label for="start_date" class="form-label fw-semibold">Start Date</label>
       <input type="date" name="start_date" value="{{request('start_date')}}" class="form-control"/>
+</div>
+<div class="col-md-4">
+      <label for="end_date" class="form-label fw-semibold">End Date</label>
+      <input type="date" name="end_date" value="{{request('end_date')}}" class="form-control"/>
 </div>
 <div class="col-md-2 d-grid">
       <button type="submit" class="btn btn-primary rounded-pill">Apply</button>
@@ -56,7 +61,7 @@
   <div class="p-4 border border-secondary-subtle rounded-4 shadow" style="width:100%;">
   <div class="d-flex justify-content-between mb-4 mt-2">  
     <h3 class="fw-medium fs-3 text-secondary-emphasis">Final Report</h3>
-    <a href="{{ route('meteo.generateReport', ['start_date' => request('start_date') ,'station_id' => request('station_id'),'range_type' =>request('range_type')]) }}" class="btn btn-secondary rounded-pill align-self-center">
+    <a href="{{ route('meteo.generateReport', ['start_date' => request('start_date') ,'end_date' => request('end_date'),'station_id' => request('station_id'),'range_type' =>request('range_type')]) }}" class="btn btn-secondary rounded-pill align-self-center">
     Download CSV</a>
   </div>
 

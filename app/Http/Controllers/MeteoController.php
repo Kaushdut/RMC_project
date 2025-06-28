@@ -19,12 +19,12 @@ class MeteoController extends Controller
         return view('meteorologist/profile');
     }
 
-    public function observation(Request $request) //for observation display and final report download
+    public function observation(Request $request) //for  final observation display 
     {
         $stationId = $request->input('station_id');
         $rangeType = $request->input('range_type');
         $startDate = $request->input('start_date');
-
+        $endDate = $request->input('end_date');
         $query = Observation::with('station');
 
         // Apply date range only if both values are present
@@ -35,8 +35,13 @@ class MeteoController extends Controller
                 'monthly' => $start->copy()->endOfMonth(),
                 default => $start,
             };
-
+           
             $query->whereBetween('observation_date', [$start, $end]);
+        }
+        // if only start and end date are present
+        if( $endDate && $startDate)
+        {
+            $query->whereBetween('observation_date', [$startDate, $endDate]);
         }
 
         if ($stationId) {
@@ -152,12 +157,12 @@ return back()->with('success', 'CSV uploaded and observations added.');
 
 }
 
-public function finalreport(Request $request)
+public function finalreport(Request $request) // final csv download
 {
     $stationId = $request->input('station_id');
     $rangeType = $request->input('range_type');
     $startDate = $request->input('start_date');
-
+     $endDate = $request->input('end_date');
     $query = Observation::with('station');
 
     if ($startDate && $rangeType) {
@@ -170,7 +175,11 @@ public function finalreport(Request $request)
 
         $query->whereBetween('observation_date', [$start, $end]);
     }
-
+      // if only start and end date are present
+        if( $endDate && $startDate)
+        {
+            $query->whereBetween('observation_date', [$startDate, $endDate]);
+        } 
     if ($stationId) {
         $query->where('station_id', $stationId);
     }
