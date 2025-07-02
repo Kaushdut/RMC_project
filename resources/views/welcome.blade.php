@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Laravel</title>
+    <title>Login Page</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -104,8 +104,13 @@
     </div>
 </main>
 
-  <footer class="bg-secondary text-white text-center py-3">
-      Regional Meteorological Center Kolkata
-    </footer>
+<div class="m-3 bg-secondary text-white text-center py-3">
+  <h1 style="font-size: 25px;">Automatic Rainfall Submission System</h1>
+</div>
+
+<footer class="bg-secondary text-white text-center">
+    Regional Meteorological Centre Kolkata
+</footer> 
+
 </body>
 </html>
